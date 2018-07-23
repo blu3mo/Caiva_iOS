@@ -1,83 +1,95 @@
-## Table of Contents
-  * [App Design](#app-design)
-    * [Objective](#objective)
-    * [Audience](#audience)
-    * [Experience](#experience)
-  * [Technical](#technical)
-    * [Screens](#Screens)
-    * [External services](#external-services)
-    * [Views, View Controllers, and other Classes](#Views-View-Controllers-and-other-Classes)
-  * [MVP Milestones](#mvp-milestones)
-    * [Week 1](#week-1)
-    * [Week 2](#week-2)
-    * [Week 3](#week-3)
-    * [Week 4](#week-4)
-    * [Week 5](#week-5)
-    * [Week 6](#week-6)
+# Caiva - A Flashcard App
 
----
+Caiva is an app to memorize things for school's tests & exams by linking a memory with an audio and picture.
 
-### App Design
+### Concept
 
-#### Objective
-[explain the goal of the app]
+When we use a paper flash card or an existing apps to memorize things (ex: Quizlet), we have to "work hard" to memorize them.
 
-#### Audience
-[who is this app targeting?]
+In Caiva, user can memorize things just by listening to a audio of words user have to memorize on their free time (ex: on transportaion, before sleep). User can take quick tests before the session, and the app will optimize the audio.
 
-#### Experience
-[how will your users interact with this app?]
+### Audience
 
-[Back to top ^](#)
+Student (around 14~ 18) wants to use it for school's quizs and exams when they need to memorize.
 
----
+People who want to take a easier method to memorise things can use this app.
 
-### Technical
+### Experience
 
-#### Screens
-* [list the different screens used in the app]
+A user opens the app when they have a time to work on session (ex: when they ride bus/car). The quick session of testing memory will start, then the user can start listening on session.
 
-#### External services
-* [list which APIs or external services will your app use?]
+User can select 2 types of the session based on their situations to work on them.
 
-#### Views, View Controllers, and other Classes
-* Views
-  * [list all views you will need]
-* View Controllers
-  * [list all view controllers you will need]
-* Other Classes
-  * [list any other classes you will need]
+A: If the user can view smartphone screen: The app will show a picture related to the word with an audio. By this function, user can link the memory with an image, and we can memorize more easier.
 
-#### Data models
-* [list all Firebase data models your app will need]
+B: If the user can't view screen, the app will just play the audio.
 
-[Back to top ^](#)
+There will be difference of voice for each cards in flashcards, so the user can link the voice type with card's content.
 
----
 
-### MVP Milestones
-[The overall milestones of first usable build, core features, and polish are just suggestions, plan to finish earlier if possible. The last 20% of work tends to take about as much time as the first 80% so do not slack off on your milestones!]
 
-#### Week 1
-_planning your app_
-* [goals for the week]
+## Technical
 
-#### Week 2
-_finishing a usable build_
-* [goals for the week, should be finishing a usable app]
+### Models
 
-#### Week 3
-* [goals for the week]
+- Cardset - Array of Cards
+- Card - Question, Answer, Degree of memory
 
-#### Week 4
-* [goals for the week, should be finishing all core features]
+### Views
 
-#### Week 5
-_starting the polish_
-* [goals for the week]
+- HomeView - List of Cardsets
+- CardsetInfoView - View where user can select to start an audio session, or edit cards
+- CardsetEditView - View where user can edit each cards
+- SettingView - View where user can edit settings
+- SessionView - View where user see when they work on sessions
 
-#### Week 6
-_submitting to the App Store_
-* [goals for the week, should be finishing the polish -- demo day on Saturday!]
+### Controllers
 
-[Back to top ^](#)
+- ViewController for each Views
+
+### Other
+
+- AudioService
+
+- OptimizationService
+
+- RealmHelper
+
+- ImageHelper
+
+
+
+## Weekly Milestone
+
+### Week 4 - Usable Build
+
+[List of tasks needed to be complete before you can start user testing]
+
+- Paper prototype
+
+- Make each views in Affinity Designer - Until Tuesday 12:00
+- Create views in storyboard - Until Wednesday
+- Create function to create & save cardsets - Until Friday
+- Start working on function to do session if possible
+
+### Week 5 - Finish Features
+
+[List of tasks to complete the implementation of features]
+
+- Finish function of audio session - Until Wednesday 12:00
+- Finish function of optimizing audio - Until Thursday
+- Anything not done
+
+### Week 6 - Polish
+
+[List of tasks needed to polish and ship to the app store]
+
+- Anything not done
+
+- Polish UI
+- Fix bugs
+
+### After MVP
+
+- Optimization by deep learning
+- Text Recognization to create cardsets
