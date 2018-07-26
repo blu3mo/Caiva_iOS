@@ -8,20 +8,70 @@
 
 /* Begin PBXBuildFile section */
 		440948C620EAC67900C860E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440948C520EAC67900C860E1 /* AppDelegate.swift */; };
-		440948C820EAC67900C860E1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440948C720EAC67900C860E1 /* ViewController.swift */; };
+		440948C820EAC67900C860E1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440948C720EAC67900C860E1 /* HomeViewController.swift */; };
 		440948CB20EAC67900C860E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 440948C920EAC67900C860E1 /* Main.storyboard */; };
 		440948CD20EAC67900C860E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 440948CC20EAC67900C860E1 /* Assets.xcassets */; };
 		440948D020EAC67900C860E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 440948CE20EAC67900C860E1 /* LaunchScreen.storyboard */; };
+		440DEEA020EFE876003893F4 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440DEE9F20EFE876003893F4 /* GradientView.swift */; };
+		440DEEA420F006BA003893F4 /* SwiftHEXColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440DEEA320F006BA003893F4 /* SwiftHEXColors.swift */; };
+		440DEEA620F00950003893F4 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440DEEA520F00950003893F4 /* Card.swift */; };
+		440DEEAA20F0111E003893F4 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440DEEA920F0111E003893F4 /* RealmHelper.swift */; };
+		44666BBB20F3FFC0007C6096 /* AddCardsetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44666BBA20F3FFC0007C6096 /* AddCardsetViewController.swift */; };
+		44666BBD20F40506007C6096 /* CardsetInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44666BBC20F40506007C6096 /* CardsetInfoViewController.swift */; };
+		447DEA4520EE9D23004D64F8 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 447DEA3920EE9D1E004D64F8 /* Roboto-Regular.ttf */; };
+		447DEA4620EE9D23004D64F8 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 447DEA3A20EE9D1E004D64F8 /* Roboto-Black.ttf */; };
+		447DEA4720EE9D23004D64F8 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 447DEA3B20EE9D1E004D64F8 /* Roboto-Medium.ttf */; };
+		447DEA4820EE9D23004D64F8 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 447DEA3C20EE9D1F004D64F8 /* Roboto-Italic.ttf */; };
+		447DEA4920EE9D23004D64F8 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 447DEA3D20EE9D1F004D64F8 /* Roboto-BoldItalic.ttf */; };
+		447DEA4A20EE9D23004D64F8 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 447DEA3E20EE9D1F004D64F8 /* Roboto-Bold.ttf */; };
+		447DEA4B20EE9D23004D64F8 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 447DEA3F20EE9D20004D64F8 /* Roboto-BlackItalic.ttf */; };
+		447DEA4C20EE9D23004D64F8 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 447DEA4020EE9D20004D64F8 /* Roboto-Light.ttf */; };
+		447DEA4D20EE9D23004D64F8 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 447DEA4120EE9D21004D64F8 /* Roboto-LightItalic.ttf */; };
+		447DEA4E20EE9D23004D64F8 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 447DEA4220EE9D22004D64F8 /* Roboto-MediumItalic.ttf */; };
+		447DEA4F20EE9D23004D64F8 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 447DEA4320EE9D22004D64F8 /* Roboto-Thin.ttf */; };
+		447DEA5020EE9D23004D64F8 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 447DEA4420EE9D22004D64F8 /* Roboto-ThinItalic.ttf */; };
+		447DEA5420EEB471004D64F8 /* Cardset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447DEA5320EEB471004D64F8 /* Cardset.swift */; };
+		447DEA5620EEB588004D64F8 /* HomeCardsetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447DEA5520EEB588004D64F8 /* HomeCardsetCell.swift */; };
+		447DEA5B20EEB616004D64F8 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447DEA5A20EEB616004D64F8 /* Gradient.swift */; };
+		44DAB814210A367F0069D315 /* UIView+RoundCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DAB813210A367F0069D315 /* UIView+RoundCorner.swift */; };
+		44DAB816210A37630069D315 /* CardsetInfoCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DAB815210A37630069D315 /* CardsetInfoCardCell.swift */; };
+		E8062BC0DF06DD311D2FA0BF /* Pods_Caiva_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF713D5BA196934229288E8 /* Pods_Caiva_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		440948C220EAC67900C860E1 /* Caiva_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Caiva_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		440948C520EAC67900C860E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		440948C720EAC67900C860E1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		440948C720EAC67900C860E1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		440948CA20EAC67900C860E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		440948CC20EAC67900C860E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		440948CF20EAC67900C860E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		440948D120EAC67900C860E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		440DEE9F20EFE876003893F4 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		440DEEA320F006BA003893F4 /* SwiftHEXColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftHEXColors.swift; sourceTree = "<group>"; };
+		440DEEA520F00950003893F4 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		440DEEA920F0111E003893F4 /* RealmHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
+		44666BBA20F3FFC0007C6096 /* AddCardsetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardsetViewController.swift; sourceTree = "<group>"; };
+		44666BBC20F40506007C6096 /* CardsetInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsetInfoViewController.swift; sourceTree = "<group>"; };
+		447DEA3920EE9D1E004D64F8 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		447DEA3A20EE9D1E004D64F8 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		447DEA3B20EE9D1E004D64F8 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		447DEA3C20EE9D1F004D64F8 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		447DEA3D20EE9D1F004D64F8 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		447DEA3E20EE9D1F004D64F8 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		447DEA3F20EE9D20004D64F8 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		447DEA4020EE9D20004D64F8 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		447DEA4120EE9D21004D64F8 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		447DEA4220EE9D22004D64F8 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		447DEA4320EE9D22004D64F8 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		447DEA4420EE9D22004D64F8 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		447DEA5320EEB471004D64F8 /* Cardset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardset.swift; sourceTree = "<group>"; };
+		447DEA5520EEB588004D64F8 /* HomeCardsetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCardsetCell.swift; sourceTree = "<group>"; };
+		447DEA5A20EEB616004D64F8 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
+		44DAB813210A367F0069D315 /* UIView+RoundCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+RoundCorner.swift"; sourceTree = "<group>"; };
+		44DAB815210A37630069D315 /* CardsetInfoCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsetInfoCardCell.swift; sourceTree = "<group>"; };
+		A4714CB34B78316538F042A2 /* Pods-Caiva_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Caiva_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Caiva_iOS/Pods-Caiva_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		DCF713D5BA196934229288E8 /* Pods_Caiva_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Caiva_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2CAEBEF1F1155A6A3896D72 /* Pods-Caiva_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Caiva_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Caiva_iOS/Pods-Caiva_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8062BC0DF06DD311D2FA0BF /* Pods_Caiva_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +91,8 @@
 			children = (
 				440948C420EAC67900C860E1 /* Caiva_iOS */,
 				440948C320EAC67900C860E1 /* Products */,
+				E87B2680F9EC074D25E4A21C /* Pods */,
+				8C1CE8663EC65BC2B7421E08 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +107,118 @@
 		440948C420EAC67900C860E1 /* Caiva_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				447DEA5820EEB5ED004D64F8 /* Helpers */,
+				447DEA5720EEB5E7004D64F8 /* Extensions */,
+				447DEA3320EE9B31004D64F8 /* Controllers */,
+				447DEA3620EE9B7A004D64F8 /* Views */,
+				447DEA3520EE9B5D004D64F8 /* Services */,
+				447DEA3220EE9B25004D64F8 /* Storyboards */,
 				440948C520EAC67900C860E1 /* AppDelegate.swift */,
-				440948C720EAC67900C860E1 /* ViewController.swift */,
-				440948C920EAC67900C860E1 /* Main.storyboard */,
+				447DEA3820EE9CAE004D64F8 /* Models */,
+				447DEA3720EE9CA8004D64F8 /* Resources */,
 				440948CC20EAC67900C860E1 /* Assets.xcassets */,
-				440948CE20EAC67900C860E1 /* LaunchScreen.storyboard */,
 				440948D120EAC67900C860E1 /* Info.plist */,
 			);
 			path = Caiva_iOS;
+			sourceTree = "<group>";
+		};
+		447DEA3220EE9B25004D64F8 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				440948CE20EAC67900C860E1 /* LaunchScreen.storyboard */,
+				440948C920EAC67900C860E1 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		447DEA3320EE9B31004D64F8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				440948C720EAC67900C860E1 /* HomeViewController.swift */,
+				44666BBA20F3FFC0007C6096 /* AddCardsetViewController.swift */,
+				44666BBC20F40506007C6096 /* CardsetInfoViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		447DEA3520EE9B5D004D64F8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		447DEA3620EE9B7A004D64F8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				447DEA5520EEB588004D64F8 /* HomeCardsetCell.swift */,
+				44DAB815210A37630069D315 /* CardsetInfoCardCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		447DEA3720EE9CA8004D64F8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				447DEA3A20EE9D1E004D64F8 /* Roboto-Black.ttf */,
+				447DEA3F20EE9D20004D64F8 /* Roboto-BlackItalic.ttf */,
+				447DEA3E20EE9D1F004D64F8 /* Roboto-Bold.ttf */,
+				447DEA3D20EE9D1F004D64F8 /* Roboto-BoldItalic.ttf */,
+				447DEA3C20EE9D1F004D64F8 /* Roboto-Italic.ttf */,
+				447DEA4020EE9D20004D64F8 /* Roboto-Light.ttf */,
+				447DEA4120EE9D21004D64F8 /* Roboto-LightItalic.ttf */,
+				447DEA3B20EE9D1E004D64F8 /* Roboto-Medium.ttf */,
+				447DEA4220EE9D22004D64F8 /* Roboto-MediumItalic.ttf */,
+				447DEA3920EE9D1E004D64F8 /* Roboto-Regular.ttf */,
+				447DEA4320EE9D22004D64F8 /* Roboto-Thin.ttf */,
+				447DEA4420EE9D22004D64F8 /* Roboto-ThinItalic.ttf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		447DEA3820EE9CAE004D64F8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				447DEA5320EEB471004D64F8 /* Cardset.swift */,
+				440DEEA520F00950003893F4 /* Card.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		447DEA5720EEB5E7004D64F8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				440DEEA320F006BA003893F4 /* SwiftHEXColors.swift */,
+				44DAB813210A367F0069D315 /* UIView+RoundCorner.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		447DEA5820EEB5ED004D64F8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				447DEA5A20EEB616004D64F8 /* Gradient.swift */,
+				440DEEA920F0111E003893F4 /* RealmHelper.swift */,
+				440DEE9F20EFE876003893F4 /* GradientView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		8C1CE8663EC65BC2B7421E08 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DCF713D5BA196934229288E8 /* Pods_Caiva_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E87B2680F9EC074D25E4A21C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E2CAEBEF1F1155A6A3896D72 /* Pods-Caiva_iOS.debug.xcconfig */,
+				A4714CB34B78316538F042A2 /* Pods-Caiva_iOS.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +228,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 440948D420EAC67900C860E1 /* Build configuration list for PBXNativeTarget "Caiva_iOS" */;
 			buildPhases = (
+				E43EF3008529CF935A3534CE /* [CP] Check Pods Manifest.lock */,
 				440948BE20EAC67900C860E1 /* Sources */,
 				440948BF20EAC67900C860E1 /* Frameworks */,
 				440948C020EAC67900C860E1 /* Resources */,
+				D51DB2A85B77BB99939E6C0E /* [CP] Embed Pods Frameworks */,
+				2DD4DA6AB546F9F7EF8CEF14 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,21 +283,102 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				447DEA5020EE9D23004D64F8 /* Roboto-ThinItalic.ttf in Resources */,
+				447DEA4F20EE9D23004D64F8 /* Roboto-Thin.ttf in Resources */,
 				440948D020EAC67900C860E1 /* LaunchScreen.storyboard in Resources */,
 				440948CD20EAC67900C860E1 /* Assets.xcassets in Resources */,
+				447DEA4E20EE9D23004D64F8 /* Roboto-MediumItalic.ttf in Resources */,
+				447DEA4D20EE9D23004D64F8 /* Roboto-LightItalic.ttf in Resources */,
+				447DEA4920EE9D23004D64F8 /* Roboto-BoldItalic.ttf in Resources */,
+				447DEA4C20EE9D23004D64F8 /* Roboto-Light.ttf in Resources */,
+				447DEA4720EE9D23004D64F8 /* Roboto-Medium.ttf in Resources */,
+				447DEA4620EE9D23004D64F8 /* Roboto-Black.ttf in Resources */,
+				447DEA4A20EE9D23004D64F8 /* Roboto-Bold.ttf in Resources */,
+				447DEA4820EE9D23004D64F8 /* Roboto-Italic.ttf in Resources */,
+				447DEA4B20EE9D23004D64F8 /* Roboto-BlackItalic.ttf in Resources */,
+				447DEA4520EE9D23004D64F8 /* Roboto-Regular.ttf in Resources */,
 				440948CB20EAC67900C860E1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2DD4DA6AB546F9F7EF8CEF14 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Caiva_iOS/Pods-Caiva_iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D51DB2A85B77BB99939E6C0E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Caiva_iOS/Pods-Caiva_iOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Caiva_iOS/Pods-Caiva_iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E43EF3008529CF935A3534CE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Caiva_iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		440948BE20EAC67900C860E1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				440948C820EAC67900C860E1 /* ViewController.swift in Sources */,
+				447DEA5B20EEB616004D64F8 /* Gradient.swift in Sources */,
+				44666BBB20F3FFC0007C6096 /* AddCardsetViewController.swift in Sources */,
+				440948C820EAC67900C860E1 /* HomeViewController.swift in Sources */,
+				447DEA5420EEB471004D64F8 /* Cardset.swift in Sources */,
+				44DAB814210A367F0069D315 /* UIView+RoundCorner.swift in Sources */,
 				440948C620EAC67900C860E1 /* AppDelegate.swift in Sources */,
+				440DEEAA20F0111E003893F4 /* RealmHelper.swift in Sources */,
+				440DEEA020EFE876003893F4 /* GradientView.swift in Sources */,
+				447DEA5620EEB588004D64F8 /* HomeCardsetCell.swift in Sources */,
+				44DAB816210A37630069D315 /* CardsetInfoCardCell.swift in Sources */,
+				440DEEA420F006BA003893F4 /* SwiftHEXColors.swift in Sources */,
+				44666BBD20F40506007C6096 /* CardsetInfoViewController.swift in Sources */,
+				440DEEA620F00950003893F4 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,10 +513,11 @@
 		};
 		440948D520EAC67900C860E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2CAEBEF1F1155A6A3896D72 /* Pods-Caiva_iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2SU5299JX4;
+				DEVELOPMENT_TEAM = E6247TCYCA;
 				INFOPLIST_FILE = Caiva_iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.bluemountain.Caiva-iOS";
@@ -287,10 +529,11 @@
 		};
 		440948D620EAC67900C860E1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4714CB34B78316538F042A2 /* Pods-Caiva_iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2SU5299JX4;
+				DEVELOPMENT_TEAM = E6247TCYCA;
 				INFOPLIST_FILE = Caiva_iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.bluemountain.Caiva-iOS";
