@@ -11,7 +11,7 @@ import Realm
 import RealmSwift
 
 class Card: Object {
-    var front: String = "NO_DATA"
-    var back: String = "NO_DATA"
-    var degree: Double = 0.0
+    @objc dynamic var front: String = ""
+    @objc dynamic var back: String = ""
+    @objc dynamic var degree: Double = 0.0
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TapticEngine
 //import Hero
 
 class AddCardsetViewController: UIViewController {
@@ -24,6 +25,8 @@ class AddCardsetViewController: UIViewController {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
+        
+        cardsetNameField.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,25 +35,30 @@ class AddCardsetViewController: UIViewController {
     }
     
     @IBAction func createButtonTouchDowned(_ sender: Any) {
-        createButton.shadowColor = UIColor(hexString: "000000", alpha: 0.15)!
+        createButton.shadowColor = UIColor(hexString: "000000", alpha: 0.2)!
     }
     
 
     @IBAction func createButtonTouchUpedOutside(_ sender: Any) {
-        createButton.shadowColor = UIColor(hexString: "000000", alpha: 0.25)!
+        createButton.shadowColor = UIColor(hexString: "000000", alpha: 0.35)!
     }
     
     
     @IBAction func createButtonTapped(_ sender: Any) {
-        createButton.shadowColor = UIColor(hexString: "000000", alpha: 0.25)!
+        createButton.shadowColor = UIColor(hexString: "000000", alpha: 0.35)!
+        
+        TapticEngine.notification.prepare()
+        TapticEngine.notification.feedback(.success)
         
         if cardsetNameField.text == "" {
             nameWarning.isHidden = false
+            
             return
         }
         
         let newCardset = Cardset()
         newCardset.name = cardsetNameField.text!
+        newCardset.cards.append(Card())
         RealmHelper.addCardset(cardset: newCardset)
         
         performSegue(withIdentifier: "unwindSegueToHome", sender: self)
@@ -63,11 +71,16 @@ class AddCardsetViewController: UIViewController {
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
-        cancelButton.shadowColor = UIColor(hexString: "000000", alpha: 0.20)!
+        cancelButton.shadowColor = UIColor(hexString: "000000", alpha: 0.2)!
+        
+        TapticEngine.impact.prepare(.light)
+        TapticEngine.impact.feedback(.light)
         
         performSegue(withIdentifier: "unwindSegueToHome", sender: self)
-        //self.hero.modalAnimationType = .uncover(direction: HeroDefaultAnimationType.Direction.down)
-        //dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func cancelButtonTouchUpedOutside(_ sender: Any) {
+        cancelButton.shadowColor = UIColor(hexString: "000000", alpha: 0.2)!
     }
     
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
@@ -84,4 +97,11 @@ class AddCardsetViewController: UIViewController {
     }
     */
 
+}
+
+extension AddCardsetViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.resignFirstResponder()
+        return true
+    }
 }

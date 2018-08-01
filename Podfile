@@ -8,5 +8,6 @@ target 'Caiva_iOS' do
   # Pods for Caiva_iOS
   pod 'RealmSwift'
   pod 'Hero'
+  pod 'TapticEngine'
   
 end

@@ -37,4 +37,19 @@ class RealmHelper {
         return realm.objects(Cardset.self).sorted(byKeyPath: "modificationTime", ascending: false)
     }
     
+    static func addBlankCard(to cardset: Cardset) {
+        let realm = try! Realm()
+        try! realm.write {
+            cardset.cards.append(Card())
+        }
+    }
+    
+    static func setCard(on cardset: Cardset, card: Card, front: String, back: String) {
+        let realm = try! Realm()
+        try! realm.write {
+            card.front = front
+            card.back = back
+        }
+    }
+    
 }

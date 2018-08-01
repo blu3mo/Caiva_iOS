@@ -15,6 +15,8 @@ class CardsetInfoCardCell: UITableViewCell {
     @IBOutlet weak var frontTextField: UITextField!
     @IBOutlet weak var backTextField: UITextField!
     
+    weak var delegate: CardsetInfoCardCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -30,5 +32,21 @@ class CardsetInfoCardCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    @IBAction func frontTextFieldEditEnded(_ sender: Any) {
+        delegate?.textFieldEditEnded(indexPath: IndexPath.init(row: Utility.getRowFromTag(tag: backTextField.tag), section: 0), front: frontTextField.text!, back: backTextField.text!)
+    }
+    @IBAction func backTextFieldEditEnded(_ sender: Any) {
+        delegate?.textFieldEditEnded(indexPath: IndexPath.init(row: Utility.getRowFromTag(tag: backTextField.tag), section: 0), front: frontTextField.text!, back: backTextField.text!)
+    }
+    
+    @IBAction func textFieldTapped(_ sender: UITextField) {
+        delegate?.textFieldTapped(indexPath: IndexPath.init(row: Utility.getRowFromTag(tag: sender.tag), section: 0))
+    }
+    
+}
 
+protocol CardsetInfoCardCellDelegate: class {
+    func textFieldEditEnded(indexPath: IndexPath, front: String, back: String)
+    func textFieldTapped(indexPath: IndexPath)
 }
