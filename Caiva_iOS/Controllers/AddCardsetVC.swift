@@ -101,7 +101,7 @@ class AddCardsetViewController: UIViewController {
 
 extension AddCardsetViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.resignFirstResponder()
+        view.endEditing(true)
         return true
     }
 }

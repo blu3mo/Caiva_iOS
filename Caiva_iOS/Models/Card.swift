@@ -13,5 +13,6 @@ import RealmSwift
 class Card: Object {
     @objc dynamic var front: String = ""
     @objc dynamic var back: String = ""
+    @objc dynamic var uuid: String = UUID().uuidString
     @objc dynamic var degree: Double = 0.0
 }

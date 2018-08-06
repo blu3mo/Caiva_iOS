@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		440948C620EAC67900C860E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440948C520EAC67900C860E1 /* AppDelegate.swift */; };
-		440948C820EAC67900C860E1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440948C720EAC67900C860E1 /* HomeViewController.swift */; };
+		440948C820EAC67900C860E1 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440948C720EAC67900C860E1 /* HomeVC.swift */; };
 		440948CB20EAC67900C860E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 440948C920EAC67900C860E1 /* Main.storyboard */; };
 		440948CD20EAC67900C860E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 440948CC20EAC67900C860E1 /* Assets.xcassets */; };
 		440948D020EAC67900C860E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 440948CE20EAC67900C860E1 /* LaunchScreen.storyboard */; };
@@ -16,10 +16,18 @@
 		440DEEA420F006BA003893F4 /* SwiftHEXColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440DEEA320F006BA003893F4 /* SwiftHEXColors.swift */; };
 		440DEEA620F00950003893F4 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440DEEA520F00950003893F4 /* Card.swift */; };
 		440DEEAA20F0111E003893F4 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440DEEA920F0111E003893F4 /* RealmHelper.swift */; };
-		4435E229210B921100FD042E /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4435E228210B921100FD042E /* HomeNavigationController.swift */; };
+		4435E229210B921100FD042E /* HomeNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4435E228210B921100FD042E /* HomeNC.swift */; };
 		4435E22B210BB5D500FD042E /* CardsetInfoPlusButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4435E22A210BB5D500FD042E /* CardsetInfoPlusButtonCell.swift */; };
-		44666BBB20F3FFC0007C6096 /* AddCardsetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44666BBA20F3FFC0007C6096 /* AddCardsetViewController.swift */; };
-		44666BBD20F40506007C6096 /* CardsetInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44666BBC20F40506007C6096 /* CardsetInfoViewController.swift */; };
+		44666BBB20F3FFC0007C6096 /* AddCardsetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44666BBA20F3FFC0007C6096 /* AddCardsetVC.swift */; };
+		44666BBD20F40506007C6096 /* CardsetInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44666BBC20F40506007C6096 /* CardsetInfoVC.swift */; };
+		44773D482112346A002C1B81 /* QuizQuestionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44773D472112346A002C1B81 /* QuizQuestionVC.swift */; };
+		44773D4A2113732E002C1B81 /* Quizset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44773D492113732E002C1B81 /* Quizset.swift */; };
+		44773D4C211373F9002C1B81 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44773D4B211373F9002C1B81 /* Quiz.swift */; };
+		44773D4E2113795C002C1B81 /* Array+Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44773D4D2113795C002C1B81 /* Array+Shuffle.swift */; };
+		44773D502114C97A002C1B81 /* UIView+Clone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44773D4F2114C97A002C1B81 /* UIView+Clone.swift */; };
+		44773D522114D2F7002C1B81 /* Array+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44773D512114D2F7002C1B81 /* Array+Safe.swift */; };
+		44773D542114DD13002C1B81 /* QuizResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44773D532114DD13002C1B81 /* QuizResultVC.swift */; };
+		44773D562114DDBD002C1B81 /* SessionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44773D552114DDBD002C1B81 /* SessionVC.swift */; };
 		447DEA4520EE9D23004D64F8 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 447DEA3920EE9D1E004D64F8 /* Roboto-Regular.ttf */; };
 		447DEA4620EE9D23004D64F8 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 447DEA3A20EE9D1E004D64F8 /* Roboto-Black.ttf */; };
 		447DEA4720EE9D23004D64F8 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 447DEA3B20EE9D1E004D64F8 /* Roboto-Medium.ttf */; };
@@ -41,16 +49,16 @@
 		44A4B242211108F500C6FEDD /* UILabel+Bestfit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A4B241211108F500C6FEDD /* UILabel+Bestfit.swift */; };
 		44DAB814210A367F0069D315 /* UIView+RoundCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DAB813210A367F0069D315 /* UIView+RoundCorner.swift */; };
 		44DAB816210A37630069D315 /* CardsetInfoCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DAB815210A37630069D315 /* CardsetInfoCardCell.swift */; };
-		44F70F43211122C40043B15D /* OptimizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F70F42211122C40043B15D /* OptimizationService.swift */; };
-		44F70F452112203C0043B15D /* TypeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F70F442112203C0043B15D /* TypeSelectionViewController.swift */; };
-		44F70F472112204C0043B15D /* QuizStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F70F462112204C0043B15D /* QuizStartViewController.swift */; };
+		44F70F43211122C40043B15D /* QuizService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F70F42211122C40043B15D /* QuizService.swift */; };
+		44F70F452112203C0043B15D /* TypeSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F70F442112203C0043B15D /* TypeSelectionVC.swift */; };
+		44F70F472112204C0043B15D /* QuizStartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F70F462112204C0043B15D /* QuizStartVC.swift */; };
 		E8062BC0DF06DD311D2FA0BF /* Pods_Caiva_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF713D5BA196934229288E8 /* Pods_Caiva_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		440948C220EAC67900C860E1 /* Caiva_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Caiva_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		440948C520EAC67900C860E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		440948C720EAC67900C860E1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		440948C720EAC67900C860E1 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		440948CA20EAC67900C860E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		440948CC20EAC67900C860E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		440948CF20EAC67900C860E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,10 +67,18 @@
 		440DEEA320F006BA003893F4 /* SwiftHEXColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftHEXColors.swift; sourceTree = "<group>"; };
 		440DEEA520F00950003893F4 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		440DEEA920F0111E003893F4 /* RealmHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
-		4435E228210B921100FD042E /* HomeNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeNavigationController.swift; path = Caiva_iOS/Controllers/HomeNavigationController.swift; sourceTree = SOURCE_ROOT; };
+		4435E228210B921100FD042E /* HomeNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeNC.swift; path = Caiva_iOS/Controllers/HomeNC.swift; sourceTree = SOURCE_ROOT; };
 		4435E22A210BB5D500FD042E /* CardsetInfoPlusButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsetInfoPlusButtonCell.swift; sourceTree = "<group>"; };
-		44666BBA20F3FFC0007C6096 /* AddCardsetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardsetViewController.swift; sourceTree = "<group>"; };
-		44666BBC20F40506007C6096 /* CardsetInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsetInfoViewController.swift; sourceTree = "<group>"; };
+		44666BBA20F3FFC0007C6096 /* AddCardsetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardsetVC.swift; sourceTree = "<group>"; };
+		44666BBC20F40506007C6096 /* CardsetInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsetInfoVC.swift; sourceTree = "<group>"; };
+		44773D472112346A002C1B81 /* QuizQuestionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizQuestionVC.swift; sourceTree = "<group>"; };
+		44773D492113732E002C1B81 /* Quizset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quizset.swift; sourceTree = "<group>"; };
+		44773D4B211373F9002C1B81 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
+		44773D4D2113795C002C1B81 /* Array+Shuffle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Shuffle.swift"; sourceTree = "<group>"; };
+		44773D4F2114C97A002C1B81 /* UIView+Clone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Clone.swift"; sourceTree = "<group>"; };
+		44773D512114D2F7002C1B81 /* Array+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Safe.swift"; sourceTree = "<group>"; };
+		44773D532114DD13002C1B81 /* QuizResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultVC.swift; sourceTree = "<group>"; };
+		44773D552114DDBD002C1B81 /* SessionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionVC.swift; sourceTree = "<group>"; };
 		447DEA3920EE9D1E004D64F8 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		447DEA3A20EE9D1E004D64F8 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		447DEA3B20EE9D1E004D64F8 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
@@ -84,9 +100,9 @@
 		44A4B241211108F500C6FEDD /* UILabel+Bestfit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Bestfit.swift"; sourceTree = "<group>"; };
 		44DAB813210A367F0069D315 /* UIView+RoundCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+RoundCorner.swift"; sourceTree = "<group>"; };
 		44DAB815210A37630069D315 /* CardsetInfoCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsetInfoCardCell.swift; sourceTree = "<group>"; };
-		44F70F42211122C40043B15D /* OptimizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptimizationService.swift; sourceTree = "<group>"; };
-		44F70F442112203C0043B15D /* TypeSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSelectionViewController.swift; sourceTree = "<group>"; };
-		44F70F462112204C0043B15D /* QuizStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizStartViewController.swift; sourceTree = "<group>"; };
+		44F70F42211122C40043B15D /* QuizService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizService.swift; sourceTree = "<group>"; };
+		44F70F442112203C0043B15D /* TypeSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSelectionVC.swift; sourceTree = "<group>"; };
+		44F70F462112204C0043B15D /* QuizStartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizStartVC.swift; sourceTree = "<group>"; };
 		A4714CB34B78316538F042A2 /* Pods-Caiva_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Caiva_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Caiva_iOS/Pods-Caiva_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		DCF713D5BA196934229288E8 /* Pods_Caiva_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Caiva_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2CAEBEF1F1155A6A3896D72 /* Pods-Caiva_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Caiva_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Caiva_iOS/Pods-Caiva_iOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -152,12 +168,15 @@
 		447DEA3320EE9B31004D64F8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				440948C720EAC67900C860E1 /* HomeViewController.swift */,
-				44666BBA20F3FFC0007C6096 /* AddCardsetViewController.swift */,
-				44F70F442112203C0043B15D /* TypeSelectionViewController.swift */,
-				44F70F462112204C0043B15D /* QuizStartViewController.swift */,
-				44666BBC20F40506007C6096 /* CardsetInfoViewController.swift */,
-				4435E228210B921100FD042E /* HomeNavigationController.swift */,
+				440948C720EAC67900C860E1 /* HomeVC.swift */,
+				44773D552114DDBD002C1B81 /* SessionVC.swift */,
+				44666BBA20F3FFC0007C6096 /* AddCardsetVC.swift */,
+				44F70F442112203C0043B15D /* TypeSelectionVC.swift */,
+				44773D532114DD13002C1B81 /* QuizResultVC.swift */,
+				44F70F462112204C0043B15D /* QuizStartVC.swift */,
+				44666BBC20F40506007C6096 /* CardsetInfoVC.swift */,
+				4435E228210B921100FD042E /* HomeNC.swift */,
+				44773D472112346A002C1B81 /* QuizQuestionVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -165,7 +184,7 @@
 		447DEA3520EE9B5D004D64F8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				44F70F42211122C40043B15D /* OptimizationService.swift */,
+				44F70F42211122C40043B15D /* QuizService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -203,7 +222,9 @@
 			isa = PBXGroup;
 			children = (
 				447DEA5320EEB471004D64F8 /* Cardset.swift */,
+				44773D492113732E002C1B81 /* Quizset.swift */,
 				440DEEA520F00950003893F4 /* Card.swift */,
+				44773D4B211373F9002C1B81 /* Quiz.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -212,9 +233,12 @@
 			isa = PBXGroup;
 			children = (
 				440DEEA320F006BA003893F4 /* SwiftHEXColors.swift */,
+				44773D4D2113795C002C1B81 /* Array+Shuffle.swift */,
+				44773D4F2114C97A002C1B81 /* UIView+Clone.swift */,
 				44A4B241211108F500C6FEDD /* UILabel+Bestfit.swift */,
 				44A4B23F2111087800C6FEDD /* UIFont+Bestfit.swift */,
 				44DAB813210A367F0069D315 /* UIView+RoundCorner.swift */,
+				44773D512114D2F7002C1B81 /* Array+Safe.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -260,7 +284,6 @@
 				440948BF20EAC67900C860E1 /* Frameworks */,
 				440948C020EAC67900C860E1 /* Resources */,
 				D51DB2A85B77BB99939E6C0E /* [CP] Embed Pods Frameworks */,
-				2DD4DA6AB546F9F7EF8CEF14 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -284,6 +307,11 @@
 					440948C120EAC67900C860E1 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -331,21 +359,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2DD4DA6AB546F9F7EF8CEF14 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Caiva_iOS/Pods-Caiva_iOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		D51DB2A85B77BB99939E6C0E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -353,6 +366,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Caiva_iOS/Pods-Caiva_iOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AlertHelperKit/AlertHelperKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -360,6 +374,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlertHelperKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -396,25 +411,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				447DEA5B20EEB616004D64F8 /* Gradient.swift in Sources */,
-				44F70F452112203C0043B15D /* TypeSelectionViewController.swift in Sources */,
-				44666BBB20F3FFC0007C6096 /* AddCardsetViewController.swift in Sources */,
-				440948C820EAC67900C860E1 /* HomeViewController.swift in Sources */,
+				44F70F452112203C0043B15D /* TypeSelectionVC.swift in Sources */,
+				44666BBB20F3FFC0007C6096 /* AddCardsetVC.swift in Sources */,
+				44773D562114DDBD002C1B81 /* SessionVC.swift in Sources */,
+				440948C820EAC67900C860E1 /* HomeVC.swift in Sources */,
 				447DEA5420EEB471004D64F8 /* Cardset.swift in Sources */,
+				44773D4A2113732E002C1B81 /* Quizset.swift in Sources */,
 				44A4B2402111087800C6FEDD /* UIFont+Bestfit.swift in Sources */,
 				44DAB814210A367F0069D315 /* UIView+RoundCorner.swift in Sources */,
-				44F70F472112204C0043B15D /* QuizStartViewController.swift in Sources */,
+				44F70F472112204C0043B15D /* QuizStartVC.swift in Sources */,
+				44773D4E2113795C002C1B81 /* Array+Shuffle.swift in Sources */,
+				44773D482112346A002C1B81 /* QuizQuestionVC.swift in Sources */,
 				4435E22B210BB5D500FD042E /* CardsetInfoPlusButtonCell.swift in Sources */,
+				44773D4C211373F9002C1B81 /* Quiz.swift in Sources */,
 				44A4B23C210FB17B00C6FEDD /* Utility.swift in Sources */,
-				44F70F43211122C40043B15D /* OptimizationService.swift in Sources */,
+				44F70F43211122C40043B15D /* QuizService.swift in Sources */,
+				44773D502114C97A002C1B81 /* UIView+Clone.swift in Sources */,
 				440948C620EAC67900C860E1 /* AppDelegate.swift in Sources */,
 				440DEEAA20F0111E003893F4 /* RealmHelper.swift in Sources */,
 				440DEEA020EFE876003893F4 /* GradientView.swift in Sources */,
 				447DEA5620EEB588004D64F8 /* HomeCardsetCell.swift in Sources */,
 				44DAB816210A37630069D315 /* CardsetInfoCardCell.swift in Sources */,
-				4435E229210B921100FD042E /* HomeNavigationController.swift in Sources */,
+				44773D542114DD13002C1B81 /* QuizResultVC.swift in Sources */,
+				4435E229210B921100FD042E /* HomeNC.swift in Sources */,
 				44A4B242211108F500C6FEDD /* UILabel+Bestfit.swift in Sources */,
 				440DEEA420F006BA003893F4 /* SwiftHEXColors.swift in Sources */,
-				44666BBD20F40506007C6096 /* CardsetInfoViewController.swift in Sources */,
+				44773D522114D2F7002C1B81 /* Array+Safe.swift in Sources */,
+				44666BBD20F40506007C6096 /* CardsetInfoVC.swift in Sources */,
 				44A4B23E210FBAC500C6FEDD /* SpeechHelper.swift in Sources */,
 				440DEEA620F00950003893F4 /* Card.swift in Sources */,
 			);

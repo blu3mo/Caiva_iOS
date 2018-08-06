@@ -11,6 +11,7 @@ import UIKit
 import TapticEngine
 import Realm
 import RealmSwift
+import AlertHelperKit
 
 class CardsetInfoViewController: UIViewController {
 
@@ -21,6 +22,7 @@ class CardsetInfoViewController: UIViewController {
     @IBOutlet weak var cardsetName: UILabel!
     @IBOutlet weak var cardsetAmount: UILabel!
     @IBOutlet weak var cardsetPerc: UILabel!
+    @IBOutlet weak var sessionStartButtonView: GradientView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,8 @@ class CardsetInfoViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        updateValues()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -43,19 +47,35 @@ class CardsetInfoViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
 
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func startSessionButtonTapped(_ sender: Any) {
-        SpeechHelper.shared.speak(text: "hello abc あいうえお　今日はいい天気　薔薇", voiceType: .standardJapanese) {
-            
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "toSession" {
+            if (cardset?.cards.count)! < 4 {
+                AlertHelperKit().showAlert(self, title: "Can not start session", message: "You need 4+ cards", button: "OK")
+                return false
+            }
+        }
+        return true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toSession" {
+            let nextVC = segue.destination as! QuizStartViewController
+            nextVC.cardset = cardset
         }
     }
+
+    @IBAction func startSessionButtonTapped(_ sender: Any) {
+        
+    }
+    
     func addCard() {
         try! Realm().write {
             cardset!.cards.append(Card())
@@ -66,12 +86,26 @@ class CardsetInfoViewController: UIViewController {
         cardList.insertRows(at: [IndexPath(row: cardset!.cards.count - 1, section: 0)], with: .automatic)
         cardList.endUpdates()
         //cardList.reloadRows(at: [IndexPath(row: (cardset?.cards.count)!, section: 0)], with: .fade)
+        updateValues()
+    }
+    
+    func updateValues() {
         cardsetAmount.text = "\(cardset!.cards.count) cards"
+        if cardset!.cards.count < 4 {
+            sessionStartButtonView.topColor = sessionStartButtonView.topColor.withAlphaComponent(0)
+            sessionStartButtonView.bottomColor = sessionStartButtonView.bottomColor.withAlphaComponent(0)
+        } else {
+            sessionStartButtonView.topColor = sessionStartButtonView.topColor.withAlphaComponent(1.0)
+            sessionStartButtonView.bottomColor = sessionStartButtonView.bottomColor.withAlphaComponent(1.0)
+        }
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
         //self.hero.modalAnimationType = .pull(direction: HeroDefaultAnimationType.Direction.right)
         performSegue(withIdentifier: "unwindToHomeFromCardsetInfo", sender: self)
+    }
+    
+    @IBAction func editButtonTapped(_ sender: Any) {
     }
     
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
@@ -99,6 +133,9 @@ class CardsetInfoViewController: UIViewController {
             })
         }
     }
+    
+     @IBAction func unwindToCardsetInfo(segue: UIStoryboardSegue) {
+    }
 }
 
 extension CardsetInfoViewController: UITableViewDelegate {
@@ -110,7 +147,7 @@ extension CardsetInfoViewController: UITableViewDataSource {
         if section == 0 {
             return cardset!.cards.count// + 1
         } else {
-            return 1
+            return 2
         }
     }
     
@@ -120,6 +157,10 @@ extension CardsetInfoViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 1 {//cardset!.cards.count {
+            if indexPath.row == 1 { //spacing
+                let blankCell = cardList.dequeueReusableCell(withIdentifier: "blankCell")!
+                return blankCell
+            }
             let buttonCell = cardList.dequeueReusableCell(withIdentifier: "plusButton")! as! CardsetInfoPlusButtonCell
             buttonCell.delegate = self
             return buttonCell
@@ -138,6 +179,9 @@ extension CardsetInfoViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 1 {
+            if indexPath.row == 1 { //spacing
+                return 110
+            }
             return 60
         }
         return 110
@@ -175,6 +219,7 @@ extension CardsetInfoViewController: UITextFieldDelegate {
 extension CardsetInfoViewController: CardsetInfoPlusButtonCellDelegate {
     func didTapButton(_ followButton: UIButton, on cell: CardsetInfoPlusButtonCell) {
         addCard()
+        cardList.scrollToRow(at: IndexPath.init(row: 1, section: 1), at: UITableViewScrollPosition.bottom, animated: true)
     }
 }
 

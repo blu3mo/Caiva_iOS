@@ -1,3 +1,8 @@
+///////////////
+//from: https://medium.com/@alejandrocotilla/how-to-integrate-google-cloud-text-to-speech-api-into-your-ios-app-140ab7be42ae
+//Modified by Shutaro Aoyama
+///////////////
+
 import UIKit
 import AVFoundation
 
@@ -7,8 +12,6 @@ enum VoiceType: String {
     case waveNetMale = "en-US-Wavenet-D"
     case standardFemale = "en-US-Standard-E"
     case standardMale = "en-US-Standard-D"
-    case standardJapanese = "en-AU-Standard-A"
-    
 }
 
 let ttsAPIUrl = "https://texttospeech.googleapis.com/v1beta1/text:synthesize"
@@ -18,6 +21,7 @@ class SpeechHelper: NSObject, AVAudioPlayerDelegate {
     
     static let shared = SpeechHelper()
     private(set) var busy: Bool = false
+    private var loopData: [String] = []
     
     private var player: AVAudioPlayer?
     private var completionHandler: (() -> Void)?
@@ -127,5 +131,23 @@ class SpeechHelper: NSObject, AVAudioPlayerDelegate {
         
         self.completionHandler!()
         self.completionHandler = nil
+    }
+    
+    func speakEach(in texts: [String], voiceType: VoiceType) -> Bool {
+        guard loopData.isEmpty else {
+            return false
+        }
+        loopData = texts
+        speakFirstOfLoopData()
+        return true
+    }
+    
+    private func speakFirstOfLoopData() {
+        speak(text: loopData.first!, voiceType: .standardFemale, completion: {
+            self.loopData.remove(at: 0)
+            if !(self.loopData.isEmpty) {
+                self.speakFirstOfLoopData()
+            }
+        })
     }
 }
