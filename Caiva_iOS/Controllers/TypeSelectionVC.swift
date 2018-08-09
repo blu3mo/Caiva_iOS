@@ -15,10 +15,11 @@ class TypeSelectionViewController: UIViewController {
     @IBOutlet weak var AOTitle: UILabel!
     @IBOutlet weak var AODescription: UILabel!
     
+    let cardset: Cardset = Cardset.currentCardset!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        ASTitle.fitTextToBounds()
+    
         // Do any additional setup after loading the view.
     }
 

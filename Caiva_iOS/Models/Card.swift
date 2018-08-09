@@ -14,5 +14,6 @@ class Card: Object {
     @objc dynamic var front: String = ""
     @objc dynamic var back: String = ""
     @objc dynamic var uuid: String = UUID().uuidString
-    @objc dynamic var degree: Double = 0.0
+    @objc dynamic var degree: Double = 0.1
+    @objc dynamic var colorID: Int = Int(arc4random_uniform(20)) //0 - 19
 }

@@ -10,9 +10,21 @@ import UIKit
 
 class QuizResultViewController: UIViewController {
 
+    @IBOutlet weak var resultLabel: UILabel!
+    @IBOutlet weak var progressLabel: UILabel!
+    @IBOutlet weak var growthLabel: UILabel!
+    
+    var result: String = ""
+    var initialPerc = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        resultLabel.text = result
+        let currentPerc = Cardset.currentCardset!.perc
+        progressLabel.text = "\(Int(currentPerc * 100))%"
+        growthLabel.text = "+\(Int((currentPerc - initialPerc) * 100))%"
+    
         // Do any additional setup after loading the view.
     }
 

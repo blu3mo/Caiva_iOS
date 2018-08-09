@@ -12,6 +12,7 @@ import TapticEngine
 import Realm
 import RealmSwift
 import AlertHelperKit
+import AVFoundation
 
 class CardsetInfoViewController: UIViewController {
 
@@ -27,9 +28,11 @@ class CardsetInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        cardset = Cardset.currentCardset!
+        
         cardsetName.text = cardset!.name
         cardsetAmount.text = "\(cardset!.cards.count) cards"
-        cardsetPerc.text = "\(Int(cardset!.perc))%"
+        cardsetPerc.text = "\(Int(cardset!.perc * 100))%"
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
@@ -42,6 +45,7 @@ class CardsetInfoViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+        cardsetPerc.text = "\(Int(cardset!.perc * 100))%"
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -57,8 +61,14 @@ class CardsetInfoViewController: UIViewController {
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "toSession" {
-            if (cardset?.cards.count)! < 4 {
+            if cardset!.cards.count < 4 {
                 AlertHelperKit().showAlert(self, title: "Can not start session", message: "You need 4+ cards", button: "OK")
+                return false
+            }
+        }
+        if identifier == "toQuiz" {
+            if cardset!.cards.count < 4 {
+                AlertHelperKit().showAlert(self, title: "Can not start quiz", message: "You need 4+ cards", button: "OK")
                 return false
             }
         }
@@ -66,10 +76,10 @@ class CardsetInfoViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toSession" {
-            let nextVC = segue.destination as! QuizStartViewController
-            nextVC.cardset = cardset
-        }
+//        if segue.identifier == "toSession" {
+//            let nextVC = segue.destination as! QuizStartViewController
+//            nextVC.cardset = cardset
+//        }
     }
 
     @IBAction func startSessionButtonTapped(_ sender: Any) {
@@ -106,6 +116,7 @@ class CardsetInfoViewController: UIViewController {
     }
     
     @IBAction func editButtonTapped(_ sender: Any) {
+        //print(AVPlayer().volume)
     }
     
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
@@ -172,8 +183,8 @@ extension CardsetInfoViewController: UITableViewDataSource {
         cell.backTextField.tag = (indexPath.row) * 2 + 1
         cell.delegate = self
         
-        cell.frontTextField.text = cardset?.cards[indexPath.row].front
-        cell.backTextField.text = cardset?.cards[indexPath.row].back
+        cell.frontTextField.text = cardset!.cards[indexPath.row].front
+        cell.backTextField.text = cardset!.cards[indexPath.row].back
         return cell
     }
     
@@ -195,7 +206,7 @@ extension CardsetInfoViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         
         let nextTag = textField.tag + 1 //get next textField tag
-        let nextRow = Utility.getRowFromTag(tag: nextTag)
+        let nextRow = Util.getRowFromTag(tag: nextTag)
         
         if let nextTextField = self.view.viewWithTag(nextTag) {
             if cardList.numberOfRows(inSection: 0) >= nextRow { //check if the next row with textfield exists

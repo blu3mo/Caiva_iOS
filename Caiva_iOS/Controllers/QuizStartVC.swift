@@ -16,6 +16,7 @@ class QuizStartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        cardset = Cardset.currentCardset
         // Do any additional setup after loading the view.
     }
 
@@ -24,12 +25,12 @@ class QuizStartViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toQuizQuestion" {
-            let nextVC = segue.destination as! QuizQuestionViewController
-            nextVC.quizset = QuizService.createQuizset(from: cardset!, amount: 4)
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "toQuizQuestion" {
+//            let nextVC = segue.destination as! QuizQuestionViewController
+//            nextVC.quizset = QuizService.createQuizset(from: cardset!, amount: 4)
+//        }
+//    }
     
     @IBAction func quizStartButtonTapped(_ sender: Any) {
         

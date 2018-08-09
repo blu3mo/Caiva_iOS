@@ -1,5 +1,6 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
+# source 'https://github.com/CocoaPods/Specs.git'
 
 target 'Caiva_iOS' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -10,6 +11,10 @@ target 'Caiva_iOS' do
   pod 'TapticEngine'
   pod 'Hero'
   pod 'AlertHelperKit', :git => 'https://github.com/keygx/AlertHelperKit'
+  # pod 'AnimatedBlurLabel'
+  # pod 'DynamicBlurView'
+  pod "VisualEffectView"
+
 
   post_install do |installer|
       installer.pods_project.targets.each do |target|

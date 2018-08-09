@@ -21,9 +21,10 @@ class SpeechHelper: NSObject, AVAudioPlayerDelegate {
     
     static let shared = SpeechHelper()
     private(set) var busy: Bool = false
-    private var loopData: [String] = []
+    private var loopData: [(String, Double, UUIDString)] = []
     
-    private var player: AVAudioPlayer?
+     var player: AVAudioPlayer?
+    
     private var completionHandler: (() -> Void)?
     
     func speak(text: String, voiceType: VoiceType = .waveNetFemale, completion: @escaping () -> Void) {
@@ -63,9 +64,11 @@ class SpeechHelper: NSObject, AVAudioPlayerDelegate {
                 self.player = try! AVAudioPlayer(data: audioData)
                 self.player?.delegate = self
                 self.player!.play()
+                self.player?.isMeteringEnabled = true
             }
         }
     }
+    
     
     private func buildPostData(text: String, voiceType: VoiceType) -> Data {
         
@@ -133,21 +136,35 @@ class SpeechHelper: NSObject, AVAudioPlayerDelegate {
         self.completionHandler = nil
     }
     
-    func speakEach(in texts: [String], voiceType: VoiceType) -> Bool {
-        guard loopData.isEmpty else {
+    func speakLoop(loopData: [(String, Double, UUIDString)], voiceType: VoiceType, eachPrepare: @escaping (_ cardUUID: UUIDString) -> Void, completion: @escaping () -> Void) -> Bool {
+        guard self.loopData.isEmpty else {
             return false
         }
-        loopData = texts
-        speakFirstOfLoopData()
+        self.loopData = loopData
+        speakFirstOfLoopData(eachPrepare: eachPrepare, completion: completion)
         return true
     }
     
-    private func speakFirstOfLoopData() {
-        speak(text: loopData.first!, voiceType: .standardFemale, completion: {
-            self.loopData.remove(at: 0)
-            if !(self.loopData.isEmpty) {
-                self.speakFirstOfLoopData()
-            }
-        })
+    func stopSpeakLoop() {
+        loopData.removeAll()
+        busy = false
+    }
+    
+    private func speakFirstOfLoopData(eachPrepare: @escaping (_ cardUUID: UUIDString) -> Void, completion: @escaping () -> Void ) -> () {
+        if !(self.loopData.isEmpty) {
+            let usingLoopData = loopData.first!
+            eachPrepare(usingLoopData.2)
+            speak(text: usingLoopData.0, voiceType: .standardFemale, completion: {
+                Util.doAfterDelay(seconds: usingLoopData.1, process: {()
+                    self.speakFirstOfLoopData(eachPrepare: eachPrepare, completion: completion)
+                })
+                if !(self.loopData.isEmpty) {
+                    self.loopData.removeFirst()
+                }
+            })
+        } else {
+            completion()
+            return
+        }
     }
 }

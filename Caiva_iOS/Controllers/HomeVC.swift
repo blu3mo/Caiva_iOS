@@ -10,6 +10,7 @@ import UIKit
 //import Hero
 import RealmSwift
 import TapticEngine
+import AVFoundation
 
 class HomeViewController: UIViewController {
     
@@ -23,9 +24,27 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let session = AVAudioSession.sharedInstance()
+        do {
+            try session.setCategory(AVAudioSessionCategoryPlayback)
+        } catch  {
+            // エラー処理
+            fatalError("カテゴリ設定失敗")
+        }
+        
+        // sessionのアクティブ化
+        do {
+            try session.setActive(true)
+        } catch {
+            // audio session有効化失敗時の処理
+            // (ここではエラーとして停止している）
+            fatalError("session有効化失敗")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        //Cardset.currentCardset = nil
+        
         self.navigationController?.navigationBar.isHidden = true
         
         cardsets = Array(RealmHelper.retrieveCardsets())
@@ -59,11 +78,12 @@ class HomeViewController: UIViewController {
     }
     @IBAction func addCardsetButtonTapped(_ sender: Any) {
         addCardsetButton.shadowColor = UIColor(hexString: "000000", alpha: 0.2)!
-        TapticEngine.impact.prepare(.medium)
-        TapticEngine.impact.feedback(.medium)
+        TapticEngine.selection.prepare()
+        TapticEngine.selection.feedback()
     }
     
     @IBAction func unwindToHome(segue: UIStoryboardSegue) { }
+    
 }
 
 extension HomeViewController: UITableViewDataSource {
@@ -127,8 +147,8 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         if indexPath.row == 1 {
             let selectedCell = tableView.cellForRow(at: indexPath) as! HomeCardsetCell
-            selectedCell.boxView.borderColor = UIColor(hexString: "D7B4DB")!
-            selectedCell.boxView.borderWidth = CGFloat(3.0)
+            selectedCell.boxView.borderColor = UIColor(hexString: "D5D5D5")!
+            selectedCell.boxView.borderWidth = CGFloat(2.0)
         }
     }
     
@@ -147,7 +167,8 @@ extension HomeViewController: UITableViewDelegate {
         TapticEngine.impact.prepare(.medium)
         TapticEngine.impact.feedback(.medium)
         let nextVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "cardsetInfo") as! CardsetInfoViewController
-        nextVC.cardset = self.cardsets[indexPath.section]
+        //nextVC.cardset = self.cardsets[indexPath.section]
+        Cardset.currentCardset = self.cardsets[indexPath.section]
 
         show(nextVC, sender: self)
         //present(nextVC, animated: true, completion: )

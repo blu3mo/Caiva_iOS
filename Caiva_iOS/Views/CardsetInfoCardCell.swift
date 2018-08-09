@@ -34,14 +34,14 @@ class CardsetInfoCardCell: UITableViewCell {
     }
     
     @IBAction func frontTextFieldEditEnded(_ sender: Any) {
-        delegate?.textFieldEditEnded(indexPath: IndexPath.init(row: Utility.getRowFromTag(tag: backTextField.tag), section: 0), front: frontTextField.text!, back: backTextField.text!)
+        delegate?.textFieldEditEnded(indexPath: IndexPath.init(row: Util.getRowFromTag(tag: backTextField.tag), section: 0), front: frontTextField.text!, back: backTextField.text!)
     }
     @IBAction func backTextFieldEditEnded(_ sender: Any) {
-        delegate?.textFieldEditEnded(indexPath: IndexPath.init(row: Utility.getRowFromTag(tag: backTextField.tag), section: 0), front: frontTextField.text!, back: backTextField.text!)
+        delegate?.textFieldEditEnded(indexPath: IndexPath.init(row: Util.getRowFromTag(tag: backTextField.tag), section: 0), front: frontTextField.text!, back: backTextField.text!)
     }
     
     @IBAction func textFieldTapped(_ sender: UITextField) {
-        delegate?.textFieldTapped(indexPath: IndexPath.init(row: Utility.getRowFromTag(tag: sender.tag), section: 0))
+        delegate?.textFieldTapped(indexPath: IndexPath.init(row: Util.getRowFromTag(tag: sender.tag), section: 0))
     }
     
 }

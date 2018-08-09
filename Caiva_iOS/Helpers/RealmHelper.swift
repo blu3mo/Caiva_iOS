@@ -52,4 +52,15 @@ class RealmHelper {
         }
     }
     
+    static func setDegree(on card: Card, value: Double) {
+        var realValue = value
+        if value >= 1 {
+            realValue = 1
+        }
+        let realm = try! Realm()
+        try! realm.write {
+            card.degree = realValue
+        }
+    }
+    
 }

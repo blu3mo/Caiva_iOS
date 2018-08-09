@@ -19,4 +19,18 @@ struct QuizService {
         }
         return Quizset(quizes: quizes)
     }
+    
+    static func updateDegree(quiz: Quiz, wasCorrect: Bool) {
+        if wasCorrect {
+            let newValue = quiz.answer.degree + 0.1
+            RealmHelper.setDegree(on: quiz.answer, value: newValue)
+            for card in quiz.otherSelections {
+                let newOtherValue = card.degree + 0.01
+                RealmHelper.setDegree(on: card, value: newOtherValue)
+            }
+        } else {
+            let newValue = quiz.answer.degree + ((quiz.answer.degree - 0.5) / -5)
+            RealmHelper.setDegree(on: quiz.answer, value: newValue)
+        }
+    }
 }

@@ -20,6 +20,7 @@
 		4435E22B210BB5D500FD042E /* CardsetInfoPlusButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4435E22A210BB5D500FD042E /* CardsetInfoPlusButtonCell.swift */; };
 		44666BBB20F3FFC0007C6096 /* AddCardsetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44666BBA20F3FFC0007C6096 /* AddCardsetVC.swift */; };
 		44666BBD20F40506007C6096 /* CardsetInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44666BBC20F40506007C6096 /* CardsetInfoVC.swift */; };
+		446AF59F211AA43B000CF4AD /* ScreenSessionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446AF59E211AA43B000CF4AD /* ScreenSessionVC.swift */; };
 		44773D482112346A002C1B81 /* QuizQuestionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44773D472112346A002C1B81 /* QuizQuestionVC.swift */; };
 		44773D4A2113732E002C1B81 /* Quizset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44773D492113732E002C1B81 /* Quizset.swift */; };
 		44773D4C211373F9002C1B81 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44773D4B211373F9002C1B81 /* Quiz.swift */; };
@@ -42,11 +43,11 @@
 		447DEA5020EE9D23004D64F8 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 447DEA4420EE9D22004D64F8 /* Roboto-ThinItalic.ttf */; };
 		447DEA5420EEB471004D64F8 /* Cardset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447DEA5320EEB471004D64F8 /* Cardset.swift */; };
 		447DEA5620EEB588004D64F8 /* HomeCardsetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447DEA5520EEB588004D64F8 /* HomeCardsetCell.swift */; };
-		447DEA5B20EEB616004D64F8 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447DEA5A20EEB616004D64F8 /* Gradient.swift */; };
-		44A4B23C210FB17B00C6FEDD /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A4B23B210FB17B00C6FEDD /* Utility.swift */; };
+		447DEA5B20EEB616004D64F8 /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447DEA5A20EEB616004D64F8 /* Gradients.swift */; };
+		44A4B23C210FB17B00C6FEDD /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A4B23B210FB17B00C6FEDD /* Util.swift */; };
 		44A4B23E210FBAC500C6FEDD /* SpeechHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A4B23D210FBAC500C6FEDD /* SpeechHelper.swift */; };
-		44A4B2402111087800C6FEDD /* UIFont+Bestfit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A4B23F2111087800C6FEDD /* UIFont+Bestfit.swift */; };
-		44A4B242211108F500C6FEDD /* UILabel+Bestfit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A4B241211108F500C6FEDD /* UILabel+Bestfit.swift */; };
+		44A66CBD2118F7A700B109F7 /* SessionResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A66CBC2118F7A700B109F7 /* SessionResultVC.swift */; };
+		44CD03DA21180CF30098ABB5 /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CD03D921180CF30098ABB5 /* SessionService.swift */; };
 		44DAB814210A367F0069D315 /* UIView+RoundCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DAB813210A367F0069D315 /* UIView+RoundCorner.swift */; };
 		44DAB816210A37630069D315 /* CardsetInfoCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DAB815210A37630069D315 /* CardsetInfoCardCell.swift */; };
 		44F70F43211122C40043B15D /* QuizService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F70F42211122C40043B15D /* QuizService.swift */; };
@@ -71,6 +72,7 @@
 		4435E22A210BB5D500FD042E /* CardsetInfoPlusButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsetInfoPlusButtonCell.swift; sourceTree = "<group>"; };
 		44666BBA20F3FFC0007C6096 /* AddCardsetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardsetVC.swift; sourceTree = "<group>"; };
 		44666BBC20F40506007C6096 /* CardsetInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsetInfoVC.swift; sourceTree = "<group>"; };
+		446AF59E211AA43B000CF4AD /* ScreenSessionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSessionVC.swift; sourceTree = "<group>"; };
 		44773D472112346A002C1B81 /* QuizQuestionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizQuestionVC.swift; sourceTree = "<group>"; };
 		44773D492113732E002C1B81 /* Quizset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quizset.swift; sourceTree = "<group>"; };
 		44773D4B211373F9002C1B81 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
@@ -93,11 +95,11 @@
 		447DEA4420EE9D22004D64F8 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
 		447DEA5320EEB471004D64F8 /* Cardset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardset.swift; sourceTree = "<group>"; };
 		447DEA5520EEB588004D64F8 /* HomeCardsetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCardsetCell.swift; sourceTree = "<group>"; };
-		447DEA5A20EEB616004D64F8 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
-		44A4B23B210FB17B00C6FEDD /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		447DEA5A20EEB616004D64F8 /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
+		44A4B23B210FB17B00C6FEDD /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		44A4B23D210FBAC500C6FEDD /* SpeechHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechHelper.swift; sourceTree = "<group>"; };
-		44A4B23F2111087800C6FEDD /* UIFont+Bestfit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Bestfit.swift"; sourceTree = "<group>"; };
-		44A4B241211108F500C6FEDD /* UILabel+Bestfit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Bestfit.swift"; sourceTree = "<group>"; };
+		44A66CBC2118F7A700B109F7 /* SessionResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResultVC.swift; sourceTree = "<group>"; };
+		44CD03D921180CF30098ABB5 /* SessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
 		44DAB813210A367F0069D315 /* UIView+RoundCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+RoundCorner.swift"; sourceTree = "<group>"; };
 		44DAB815210A37630069D315 /* CardsetInfoCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsetInfoCardCell.swift; sourceTree = "<group>"; };
 		44F70F42211122C40043B15D /* QuizService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizService.swift; sourceTree = "<group>"; };
@@ -170,7 +172,9 @@
 			children = (
 				440948C720EAC67900C860E1 /* HomeVC.swift */,
 				44773D552114DDBD002C1B81 /* SessionVC.swift */,
+				446AF59E211AA43B000CF4AD /* ScreenSessionVC.swift */,
 				44666BBA20F3FFC0007C6096 /* AddCardsetVC.swift */,
+				44A66CBC2118F7A700B109F7 /* SessionResultVC.swift */,
 				44F70F442112203C0043B15D /* TypeSelectionVC.swift */,
 				44773D532114DD13002C1B81 /* QuizResultVC.swift */,
 				44F70F462112204C0043B15D /* QuizStartVC.swift */,
@@ -185,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				44F70F42211122C40043B15D /* QuizService.swift */,
+				44CD03D921180CF30098ABB5 /* SessionService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -235,8 +240,6 @@
 				440DEEA320F006BA003893F4 /* SwiftHEXColors.swift */,
 				44773D4D2113795C002C1B81 /* Array+Shuffle.swift */,
 				44773D4F2114C97A002C1B81 /* UIView+Clone.swift */,
-				44A4B241211108F500C6FEDD /* UILabel+Bestfit.swift */,
-				44A4B23F2111087800C6FEDD /* UIFont+Bestfit.swift */,
 				44DAB813210A367F0069D315 /* UIView+RoundCorner.swift */,
 				44773D512114D2F7002C1B81 /* Array+Safe.swift */,
 			);
@@ -246,9 +249,9 @@
 		447DEA5820EEB5ED004D64F8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				447DEA5A20EEB616004D64F8 /* Gradient.swift */,
+				447DEA5A20EEB616004D64F8 /* Gradients.swift */,
 				44A4B23D210FBAC500C6FEDD /* SpeechHelper.swift */,
-				44A4B23B210FB17B00C6FEDD /* Utility.swift */,
+				44A4B23B210FB17B00C6FEDD /* Util.swift */,
 				440DEEA920F0111E003893F4 /* RealmHelper.swift */,
 				440DEE9F20EFE876003893F4 /* GradientView.swift */,
 			);
@@ -371,6 +374,7 @@
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/TapticEngine/TapticEngine.framework",
+				"${BUILT_PRODUCTS_DIR}/VisualEffectView/VisualEffectView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -379,6 +383,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TapticEngine.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VisualEffectView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -410,31 +415,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				447DEA5B20EEB616004D64F8 /* Gradient.swift in Sources */,
+				447DEA5B20EEB616004D64F8 /* Gradients.swift in Sources */,
 				44F70F452112203C0043B15D /* TypeSelectionVC.swift in Sources */,
 				44666BBB20F3FFC0007C6096 /* AddCardsetVC.swift in Sources */,
 				44773D562114DDBD002C1B81 /* SessionVC.swift in Sources */,
 				440948C820EAC67900C860E1 /* HomeVC.swift in Sources */,
 				447DEA5420EEB471004D64F8 /* Cardset.swift in Sources */,
 				44773D4A2113732E002C1B81 /* Quizset.swift in Sources */,
-				44A4B2402111087800C6FEDD /* UIFont+Bestfit.swift in Sources */,
 				44DAB814210A367F0069D315 /* UIView+RoundCorner.swift in Sources */,
 				44F70F472112204C0043B15D /* QuizStartVC.swift in Sources */,
+				44CD03DA21180CF30098ABB5 /* SessionService.swift in Sources */,
 				44773D4E2113795C002C1B81 /* Array+Shuffle.swift in Sources */,
 				44773D482112346A002C1B81 /* QuizQuestionVC.swift in Sources */,
 				4435E22B210BB5D500FD042E /* CardsetInfoPlusButtonCell.swift in Sources */,
 				44773D4C211373F9002C1B81 /* Quiz.swift in Sources */,
-				44A4B23C210FB17B00C6FEDD /* Utility.swift in Sources */,
+				44A4B23C210FB17B00C6FEDD /* Util.swift in Sources */,
 				44F70F43211122C40043B15D /* QuizService.swift in Sources */,
 				44773D502114C97A002C1B81 /* UIView+Clone.swift in Sources */,
 				440948C620EAC67900C860E1 /* AppDelegate.swift in Sources */,
 				440DEEAA20F0111E003893F4 /* RealmHelper.swift in Sources */,
+				446AF59F211AA43B000CF4AD /* ScreenSessionVC.swift in Sources */,
 				440DEEA020EFE876003893F4 /* GradientView.swift in Sources */,
 				447DEA5620EEB588004D64F8 /* HomeCardsetCell.swift in Sources */,
 				44DAB816210A37630069D315 /* CardsetInfoCardCell.swift in Sources */,
 				44773D542114DD13002C1B81 /* QuizResultVC.swift in Sources */,
 				4435E229210B921100FD042E /* HomeNC.swift in Sources */,
-				44A4B242211108F500C6FEDD /* UILabel+Bestfit.swift in Sources */,
+				44A66CBD2118F7A700B109F7 /* SessionResultVC.swift in Sources */,
 				440DEEA420F006BA003893F4 /* SwiftHEXColors.swift in Sources */,
 				44773D522114D2F7002C1B81 /* Array+Safe.swift in Sources */,
 				44666BBD20F40506007C6096 /* CardsetInfoVC.swift in Sources */,
@@ -580,11 +586,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E6247TCYCA;
 				INFOPLIST_FILE = Caiva_iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.bluemountain.Caiva-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -596,11 +603,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E6247TCYCA;
 				INFOPLIST_FILE = Caiva_iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.bluemountain.Caiva-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
