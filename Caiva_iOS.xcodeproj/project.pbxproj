@@ -48,6 +48,9 @@
 		44A4B23E210FBAC500C6FEDD /* SpeechHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A4B23D210FBAC500C6FEDD /* SpeechHelper.swift */; };
 		44A66CBD2118F7A700B109F7 /* SessionResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A66CBC2118F7A700B109F7 /* SessionResultVC.swift */; };
 		44CD03DA21180CF30098ABB5 /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CD03D921180CF30098ABB5 /* SessionService.swift */; };
+		44CFE03A211BE49700125571 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CFE039211BE49700125571 /* SettingVC.swift */; };
+		44CFE03C211BEA8400125571 /* SettingsContaineTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CFE03B211BEA8400125571 /* SettingsContaineTVC.swift */; };
+		44CFE040211BFC9F00125571 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44CFE03F211BFC9F00125571 /* GoogleService-Info.plist */; };
 		44DAB814210A367F0069D315 /* UIView+RoundCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DAB813210A367F0069D315 /* UIView+RoundCorner.swift */; };
 		44DAB816210A37630069D315 /* CardsetInfoCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DAB815210A37630069D315 /* CardsetInfoCardCell.swift */; };
 		44F70F43211122C40043B15D /* QuizService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F70F42211122C40043B15D /* QuizService.swift */; };
@@ -100,6 +103,9 @@
 		44A4B23D210FBAC500C6FEDD /* SpeechHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechHelper.swift; sourceTree = "<group>"; };
 		44A66CBC2118F7A700B109F7 /* SessionResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResultVC.swift; sourceTree = "<group>"; };
 		44CD03D921180CF30098ABB5 /* SessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
+		44CFE039211BE49700125571 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
+		44CFE03B211BEA8400125571 /* SettingsContaineTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContaineTVC.swift; sourceTree = "<group>"; };
+		44CFE03F211BFC9F00125571 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		44DAB813210A367F0069D315 /* UIView+RoundCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+RoundCorner.swift"; sourceTree = "<group>"; };
 		44DAB815210A37630069D315 /* CardsetInfoCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsetInfoCardCell.swift; sourceTree = "<group>"; };
 		44F70F42211122C40043B15D /* QuizService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizService.swift; sourceTree = "<group>"; };
@@ -144,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				440948C520EAC67900C860E1 /* AppDelegate.swift */,
+				44CFE03F211BFC9F00125571 /* GoogleService-Info.plist */,
 				447DEA5820EEB5ED004D64F8 /* Helpers */,
 				447DEA5720EEB5E7004D64F8 /* Extensions */,
 				447DEA3320EE9B31004D64F8 /* Controllers */,
@@ -171,9 +178,11 @@
 			isa = PBXGroup;
 			children = (
 				440948C720EAC67900C860E1 /* HomeVC.swift */,
+				44CFE039211BE49700125571 /* SettingVC.swift */,
 				44773D552114DDBD002C1B81 /* SessionVC.swift */,
 				446AF59E211AA43B000CF4AD /* ScreenSessionVC.swift */,
 				44666BBA20F3FFC0007C6096 /* AddCardsetVC.swift */,
+				44CFE03B211BEA8400125571 /* SettingsContaineTVC.swift */,
 				44A66CBC2118F7A700B109F7 /* SessionResultVC.swift */,
 				44F70F442112203C0043B15D /* TypeSelectionVC.swift */,
 				44773D532114DD13002C1B81 /* QuizResultVC.swift */,
@@ -352,6 +361,7 @@
 				447DEA4720EE9D23004D64F8 /* Roboto-Medium.ttf in Resources */,
 				447DEA4620EE9D23004D64F8 /* Roboto-Black.ttf in Resources */,
 				447DEA4A20EE9D23004D64F8 /* Roboto-Bold.ttf in Resources */,
+				44CFE040211BFC9F00125571 /* GoogleService-Info.plist in Resources */,
 				447DEA4820EE9D23004D64F8 /* Roboto-Italic.ttf in Resources */,
 				447DEA4B20EE9D23004D64F8 /* Roboto-BlackItalic.ttf in Resources */,
 				447DEA4520EE9D23004D64F8 /* Roboto-Regular.ttf in Resources */,
@@ -370,20 +380,26 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Caiva_iOS/Pods-Caiva_iOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AlertHelperKit/AlertHelperKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
+				"${BUILT_PRODUCTS_DIR}/MGSwipeTableCell/MGSwipeTableCell.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/TapticEngine/TapticEngine.framework",
 				"${BUILT_PRODUCTS_DIR}/VisualEffectView/VisualEffectView.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlertHelperKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MGSwipeTableCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TapticEngine.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VisualEffectView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -434,6 +450,7 @@
 				44773D502114C97A002C1B81 /* UIView+Clone.swift in Sources */,
 				440948C620EAC67900C860E1 /* AppDelegate.swift in Sources */,
 				440DEEAA20F0111E003893F4 /* RealmHelper.swift in Sources */,
+				44CFE03A211BE49700125571 /* SettingVC.swift in Sources */,
 				446AF59F211AA43B000CF4AD /* ScreenSessionVC.swift in Sources */,
 				440DEEA020EFE876003893F4 /* GradientView.swift in Sources */,
 				447DEA5620EEB588004D64F8 /* HomeCardsetCell.swift in Sources */,
@@ -443,6 +460,7 @@
 				44A66CBD2118F7A700B109F7 /* SessionResultVC.swift in Sources */,
 				440DEEA420F006BA003893F4 /* SwiftHEXColors.swift in Sources */,
 				44773D522114D2F7002C1B81 /* Array+Safe.swift in Sources */,
+				44CFE03C211BEA8400125571 /* SettingsContaineTVC.swift in Sources */,
 				44666BBD20F40506007C6096 /* CardsetInfoVC.swift in Sources */,
 				44A4B23E210FBAC500C6FEDD /* SpeechHelper.swift in Sources */,
 				440DEEA620F00950003893F4 /* Card.swift in Sources */,

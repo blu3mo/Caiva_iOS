@@ -9,20 +9,48 @@
 import Foundation
 
 struct QuizService {
-    static func createQuizset(from cardset: Cardset, amount: Int) -> Quizset {
-        let usingCards: [Card] = Array(cardset.cards.shuffled()[..<amount])
+    
+    static var lastCard = Card()
+    
+    static func createQuizset(from cardset: Cardset) -> Quizset {
+        var amount = Int((Double(cardset.cards.count) * (5/8)) + 3.75)
+        
+        if cardset.cards.count < amount {
+            amount = cardset.cards.count
+        }
+        
+        let cards = cardset.cards
+        var pickingCards: [Card] = []
+        cards.forEach { (card) in
+            let multiplier = Int(10 - (card.degree * 10)/1.5 + 2)
+            for _ in 1...multiplier {
+                pickingCards.append(card)
+            }
+        }
+        
         var quizes: [Quiz] = []
-        for usingCard in usingCards {
-            let otherSelections: [Card] = Array(cardset.cards.filter{$0.uuid != usingCard.uuid}.shuffled()[..<3])
-            let quiz = Quiz(answer: usingCard, otherSelections: otherSelections)
+        for _ in 1...amount {
+            pickingCards.shuffle()
+            var usingCard = pickingCards.first
+            if usingCard == lastCard {
+                usingCard = pickingCards[1]
+            }
+            lastCard = usingCard!
+            
+            let otherSelections: [Card] = Array(cards.filter{$0.uuid != usingCard!.uuid}.shuffled()[..<3])
+            let quiz = Quiz(answer: usingCard!, otherSelections: otherSelections)
             quizes.append(quiz)
         }
+            
+//            let otherSelections: [Card] = Array(cardset.cards.filter{$0.uuid != usingCard.uuid}.shuffled()[..<3])
+//            let quiz = Quiz(answer: usingCard, otherSelections: otherSelections)
+//            quizes.append(quiz)
         return Quizset(quizes: quizes)
     }
     
     static func updateDegree(quiz: Quiz, wasCorrect: Bool) {
         if wasCorrect {
-            let newValue = quiz.answer.degree + 0.1
+            let newValue = quiz.answer.degree + ((1.2 - quiz.answer.degree) / 10)
             RealmHelper.setDegree(on: quiz.answer, value: newValue)
             for card in quiz.otherSelections {
                 let newOtherValue = card.degree + 0.01

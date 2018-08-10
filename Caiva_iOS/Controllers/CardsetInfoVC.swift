@@ -13,6 +13,7 @@ import Realm
 import RealmSwift
 import AlertHelperKit
 import AVFoundation
+import MGSwipeTableCell
 
 class CardsetInfoViewController: UIViewController {
 
@@ -20,19 +21,21 @@ class CardsetInfoViewController: UIViewController {
     
     @IBOutlet weak var cardList: UITableView!
     @IBOutlet weak var tableBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var cardsetName: UILabel!
+    @IBOutlet weak var cardsetName: UITextField!
     @IBOutlet weak var cardsetAmount: UILabel!
     @IBOutlet weak var cardsetPerc: UILabel!
     @IBOutlet weak var sessionStartButtonView: GradientView!
+  
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         cardset = Cardset.currentCardset!
         
         cardsetName.text = cardset!.name
         cardsetAmount.text = "\(cardset!.cards.count) cards"
-        cardsetPerc.text = "\(Int(cardset!.perc * 100))%"
+        cardsetPerc.text = "\(Int(cardset!.showingPerc * 100))%"
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
@@ -45,7 +48,7 @@ class CardsetInfoViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
-        cardsetPerc.text = "\(Int(cardset!.perc * 100))%"
+        cardsetPerc.text = "\(Int(cardset!.showingPerc * 100))%"
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -83,7 +86,7 @@ class CardsetInfoViewController: UIViewController {
     }
 
     @IBAction func startSessionButtonTapped(_ sender: Any) {
-        
+        sessionStartButtonView.shadowColor = UIColor(hexString: "#000000", alpha: 0.25)!
     }
     
     func addCard() {
@@ -97,10 +100,13 @@ class CardsetInfoViewController: UIViewController {
         cardList.endUpdates()
         //cardList.reloadRows(at: [IndexPath(row: (cardset?.cards.count)!, section: 0)], with: .fade)
         updateValues()
+        print("add card done")
     }
     
     func updateValues() {
         cardsetAmount.text = "\(cardset!.cards.count) cards"
+        cardsetPerc.text = "\(Int(cardset!.showingPerc * 100))%"
+        
         if cardset!.cards.count < 4 {
             sessionStartButtonView.topColor = sessionStartButtonView.topColor.withAlphaComponent(0)
             sessionStartButtonView.bottomColor = sessionStartButtonView.bottomColor.withAlphaComponent(0)
@@ -116,7 +122,6 @@ class CardsetInfoViewController: UIViewController {
     }
     
     @IBAction func editButtonTapped(_ sender: Any) {
-        //print(AVPlayer().volume)
     }
     
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
@@ -145,7 +150,35 @@ class CardsetInfoViewController: UIViewController {
         }
     }
     
-     @IBAction func unwindToCardsetInfo(segue: UIStoryboardSegue) {
+    @IBAction func cardsetNameEditEnded(_ sender: Any) {
+        if cardsetName.text != "" {
+            RealmHelper.renameCardset(on: Cardset.currentCardset!, text: cardsetName.text!)
+            TapticEngine.impact.prepare(.light)
+            TapticEngine.impact.feedback(.light)
+        } else {
+            TapticEngine.notification.prepare()
+            TapticEngine.notification.feedback(.error)
+            AlertHelperKit().showAlert(self, title: "Can not save title", message: "You can't have blank title", button: "OK")
+            cardsetName.text = Cardset.currentCardset!.name
+        }
+    }
+    
+    @IBAction func unwindToCardsetInfo(segue: UIStoryboardSegue) {
+    }
+    
+    @IBAction func startSessionButtonTouchDown(_ sender: Any) {
+        sessionStartButtonView.shadowColor = UIColor(hexString: "#000000", alpha: 0.18)!
+    }
+    @IBAction func startSessionButtonTouchUpedOutside(_ sender: Any) {
+        sessionStartButtonView.shadowColor = UIColor(hexString: "#000000", alpha: 0.25)!
+    }
+    func reload(tableView: UITableView) {
+        //let contentOffset = tableView.contentOffset
+//        Util.doAfterDelay(seconds: 0.1, process: {
+//            tableView.reloadData()
+//        })
+        //tableView.layoutIfNeeded()
+        //tableView.setContentOffset(contentOffset, animated: false)
     }
 }
 
@@ -181,7 +214,35 @@ extension CardsetInfoViewController: UITableViewDataSource {
         cell.frontTextField.tag = (indexPath.row) * 2
         cell.backTextField.delegate = self
         cell.backTextField.tag = (indexPath.row) * 2 + 1
-        cell.delegate = self
+        cell.myDelegate = self
+        
+        cell.rightButtons = [MGSwipeButton(title: "", icon: UIImage(named:"CardDeleteIcon"), backgroundColor: UIColor(hexString: "F4F4F4")){ (sender: MGSwipeTableCell!) -> Bool in
+            self.view.endEditing(true)
+            //let tappedCard = self.cardset?.cards[indexPath.row]
+            RealmHelper.deleteCard(on: self.cardset!, index: indexPath.row)
+            self.cardset = Cardset.currentCardset!
+            self.updateValues()
+            self.cardList.deleteRows(at: [indexPath], with: .left)
+            Util.doAfterDelay(seconds: 0.13, process: {
+                self.cardList.reloadData()
+            })
+            //self.cardList.scrollToRow(at: indexPath, at: .none , animated: true)
+//            var reloadingRows: [IndexPath] = []
+//            if indexPath.row < (self.cardset!.cards.count - 1) {
+//                for i in indexPath.row ... (self.cardset!.cards.count - 1) {
+//                    reloadingRows.append(IndexPath(row: i, section: 0))
+//                }
+//            }
+//            self.cardList.reloadRows(at: reloadingRows, with: .automatic)
+            //self.reload(tableView: self.cardList)
+            //})
+//            //self.cardsetTableView.deleteSections([indexPath.section], with: .left)
+//            self.cardsets = Array(RealmHelper.retrieveCardsets())
+//            self.cardsetTableView.deleteSections([indexPath.section], with: .left)
+//            self.reloadTable()
+            return true
+        }]
+        //cell.rightButtons
         
         cell.frontTextField.text = cardset!.cards[indexPath.row].front
         cell.backTextField.text = cardset!.cards[indexPath.row].back
@@ -202,29 +263,46 @@ extension CardsetInfoViewController: UITableViewDataSource {
 
 extension CardsetInfoViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.restorationIdentifier == "titleEdit" {
+            textField.resignFirstResponder()
+            return true
+        }
         TapticEngine.impact.prepare(.light)
-        textField.resignFirstResponder()
+        //textField.resignFirstResponder()
         
         let nextTag = textField.tag + 1 //get next textField tag
         let nextRow = Util.getRowFromTag(tag: nextTag)
         
-        if let nextTextField = self.view.viewWithTag(nextTag) {
-            if cardList.numberOfRows(inSection: 0) >= nextRow { //check if the next row with textfield exists
-                TapticEngine.impact.feedback(.light)
-            } else {
-                addCard()
-                TapticEngine.impact.feedback(.medium)
-            }
-            self.cardList.scrollToRow(at: IndexPath.init(row: nextRow, section: 0), at: UITableViewScrollPosition.bottom, animated: true)
-            nextTextField.becomeFirstResponder()
+        if cardList.numberOfRows(inSection: 0) > nextRow { //check if the next row with textfield exists
+            TapticEngine.impact.feedback(.light)
+            print("next row")
+            self.cardList.scrollToRow(at: IndexPath.init(row: nextRow, section: 0), at: UITableViewScrollPosition.none, animated: true)
         } else {
             addCard()
-            self.cardList.scrollToRow(at: IndexPath.init(row: nextRow, section: 0), at: UITableViewScrollPosition.bottom, animated: true)
-            self.view.viewWithTag(nextTag)?.becomeFirstResponder()
+            TapticEngine.impact.feedback(.medium)
+            print("new card")
+            self.cardList.scrollToRow(at: IndexPath.init(row: 0, section: 1), at: UITableViewScrollPosition.none, animated: true)
         }
+        let nextTextField = self.view.viewWithTag(nextTag)
+        nextTextField?.becomeFirstResponder()
+//        if let nextTextField = self.view.viewWithTag(nextTag) {
+//            if cardList.numberOfRows(inSection: 0) > nextRow { //check if the next row with textfield exists
+//                TapticEngine.impact.feedback(.light)
+//            } else {
+//                addCard()
+//                TapticEngine.impact.feedback(.medium)
+//            }
+//            self.cardList.scrollToRow(at: IndexPath.init(row: nextRow, section: 0), at: UITableViewScrollPosition.bottom, animated: true)
+//            nextTextField.becomeFirstResponder()
+//        } else {
+//            addCard()
+//            self.cardList.scrollToRow(at: IndexPath.init(row: nextRow, section: 0), at: UITableViewScrollPosition.bottom, animated: true)
+//            self.view.viewWithTag(nextTag)?.becomeFirstResponder()
+//        }
         
         return true
     }
+    
 }
 
 extension CardsetInfoViewController: CardsetInfoPlusButtonCellDelegate {

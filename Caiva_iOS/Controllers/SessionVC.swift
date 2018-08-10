@@ -20,6 +20,8 @@ class SessionViewController: UIViewController {
     
     var records: [Float] = []
     
+    var voiceType: VoiceType = .standardMale
+    
     var mustStopAudio = false
     
     //let lipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
@@ -31,23 +33,13 @@ class SessionViewController: UIViewController {
         
         startTime = Date()
         playSession()
-//        let didSpoke = SpeechHelper.shared.speakLoop(loopData: SessionService.createAudioResource(from: cardset), voiceType: .standardFemale, completion: {
-//            self.performSegue(withIdentifier: "endSession", sender: nil)
-//        })
-//        if !(didSpoke) {
-//            self.performSegue(withIdentifier: "endSession", sender: nil)
-//        }
         
         scheduledTimerWithTimeInterval()
-        
-//        SpeechHelper.shared.speak(text: "hello hellohello", voiceType: .waveNetMale, completion: {
-//            SpeechHelper.shared.speak(text: "aaaaaaaa", voiceType: .waveNetMale, completion: {})
-//        })
         // Do any additional setup after loading the view.
     }
     
     func playSession() {
-        let didSpoke = SpeechHelper.shared.speakLoop(loopData: SessionService.createAudioResource(from: cardset), voiceType: .standardFemale, eachPrepare: {cardUUID in
+        let didSpoke = SpeechHelper.shared.speakLoop(loopData: SessionService.createAudioResource(from: cardset), voiceType: .standardFemale /*<- no meaning*/, eachPrepare: {cardUUID in
             let playedCard = self.cardset.cards.filter{$0.uuid == cardUUID}.first!
             RealmHelper.setDegree(on: playedCard, value: playedCard.degree + 0.005)
         }, completion: {
@@ -60,13 +52,13 @@ class SessionViewController: UIViewController {
     
     func scheduledTimerWithTimeInterval(){
         // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
-        timer = Timer.scheduledTimer(timeInterval: 0.15, target: self, selector: #selector(self.updateSoundVisual), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updateSoundVisual), userInfo: nil, repeats: true)
     }
     
     @objc func updateSoundVisual() {
         if let player = SpeechHelper.shared.player {
             player.updateMeters()
-            let averageValue = ((player.averagePower(forChannel: 0) + 120) / 120 + 1)
+            let averageValue = ((player.averagePower(forChannel: 0) + 120) / 120 + 0.5)
             print(averageValue)
             var realValue = averageValue
             if records.count != 0 {
@@ -76,9 +68,9 @@ class SessionViewController: UIViewController {
             records.append(realValue)
             print(records)
             
-            if realValue <= 1 { realValue = 1 }
+            if realValue <= 0.5 { realValue = 0.5 }
             
-            UIView.animate(withDuration: 0.15, animations: {
+            UIView.animate(withDuration: 0.1, animations: {
             self.soundVisual.transform = CGAffineTransform(scaleX: CGFloat(realValue * 3 ), y: CGFloat(realValue * 3 ))
             })
             print(realValue)

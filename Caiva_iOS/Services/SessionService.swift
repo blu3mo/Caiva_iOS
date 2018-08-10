@@ -11,12 +11,30 @@ typealias UUIDString = String
 
 struct SessionService {
     
+    static var lastCard: Card = Card()
+    
     static func createAudioResource(from cardset: Cardset) -> [(String, Double, UUIDString)] {
         var audioResource: [(String, Double, UUIDString)] = []
         let cards = cardset.cards
+        var pickingCard: [Card] = []
         cards.forEach { (card) in
-            audioResource.append((card.front, 1.5, card.uuid))
-            audioResource.append((card.back, 3, card.uuid))
+            let multiplier = Int(10 - (card.degree * 10)/1.5 + 2)
+            print(multiplier)
+            print(card.front)
+            for i in 1...multiplier {
+                pickingCard.append(card)
+            }
+        }
+        for i in 1...20 {
+            pickingCard.shuffle()
+            var usingCard = pickingCard.first!
+            if usingCard == lastCard {
+                usingCard = pickingCard[1]
+            }
+            audioResource.append((usingCard.front, 1.5, usingCard.uuid))
+            audioResource.append((usingCard.back, 3, usingCard.uuid))
+            
+            lastCard = usingCard
         }
         
         return audioResource

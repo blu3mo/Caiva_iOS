@@ -14,6 +14,9 @@ class SessionResultViewController: UIViewController {
     
     @IBOutlet weak var timeLabel: UILabel!
     
+    @IBOutlet weak var takeQuizButtonView: GradientView!
+    @IBOutlet weak var backHomeButtonView: GradientView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,7 +30,26 @@ class SessionResultViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    @IBAction func takeQuizButtonTapped(_ sender: Any) {
+        takeQuizButtonView.shadowColor = UIColor(hexString: "#000000", alpha: 0.25)!
+    }
+    @IBAction func takeQuizButtonTouchDowned(_ sender: Any) {
+        takeQuizButtonView.shadowColor = UIColor(hexString: "#000000", alpha: 0.15)!
+    }
+    @IBAction func takeQuizButtonTouchUpedOutside(_ sender: Any) {
+        takeQuizButtonView.shadowColor = UIColor(hexString: "#000000", alpha: 0.25)!
+    }
+    
+    @IBAction func backHomeButtonTapped(_ sender: Any) {
+        backHomeButtonView.shadowColor = UIColor(hexString: "#000000", alpha: 0.25)!
+    }
+    @IBAction func backHomeButtonTouchDowned(_ sender: Any) {
+        backHomeButtonView.shadowColor = UIColor(hexString: "#000000", alpha: 0.15)!
+    }
+    @IBAction func backHomeButtonTouchUpedOutside(_ sender: Any) {
+        backHomeButtonView.shadowColor = UIColor(hexString: "#000000", alpha: 0.25)!
+    }
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        if segue.identifier == "toQuiz" {
 //            
 //        }

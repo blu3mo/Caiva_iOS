@@ -11,6 +11,8 @@ import UIKit
 import RealmSwift
 import TapticEngine
 import AVFoundation
+import MGSwipeTableCell
+import AlertHelperKit
 
 class HomeViewController: UIViewController {
     
@@ -18,6 +20,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var cardsetTableView: UITableView!
     @IBOutlet weak var emptyGuideView: UIView!
     //@IBOutlet weak var newCardsetButton: GradientView!
+    
+    @IBOutlet weak var tutorialView: UIView!
     
     var cardsets: [Cardset] = []
     
@@ -40,6 +44,16 @@ class HomeViewController: UIViewController {
             // (ここではエラーとして停止している）
             fatalError("session有効化失敗")
         }
+        
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if launchedBefore  {
+            print("Not first launch.")
+            tutorialView.isHidden = true
+        } else {
+            print("First launch, setting UserDefault.")
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+        }
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,7 +71,7 @@ class HomeViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        cardsetTableView.reloadData()
+        reloadTable()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -67,6 +81,23 @@ class HomeViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func reloadTable() {
+        cardsetTableView.reloadData()
+        if cardsets.count != 0 {
+            emptyGuideView.isHidden = true
+        } else {
+            emptyGuideView.isHidden = false
+        }
+    }
+    
+    @IBAction func startAppButtonTapped(_ sender: Any) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.tutorialView.alpha = 0.0
+        }, completion: { _ in
+            self.tutorialView.isHidden = true
+        })
     }
     
     @IBAction func addCardsetButtonTouchDowned(_ sender: Any) {
@@ -111,12 +142,35 @@ extension HomeViewController: UITableViewDataSource {
             let cell = cardsetTableView.dequeueReusableCell(withIdentifier: "HomeCardsetCell") as! HomeCardsetCell
             
             let cardset = cardsets[sec]
-            cell.setText(nameData: cardset.name, amountData: cardset.cards.count, percData: cardset.perc)
+            cell.setText(nameData: cardset.name, amountData: cardset.cards.count, percData: cardset.showingPerc)
+            cell.rightButtons = [MGSwipeButton(title: "", icon: UIImage(named:"DeleteIcon"), backgroundColor: UIColor(hexString: "F4F4F4")){ (sender: MGSwipeTableCell!) -> Bool in
+                let params = Parameters(
+                    title: "Warning",
+                    message: "Do you really want to delete?",
+                    cancelButton: "Cancel",
+                    otherButtons: ["Yes"]
+                )
+                AlertHelperKit().showAlertWithHandler(self, parameters: params) { buttonIndex in
+                    if buttonIndex == 1 {
+                        self.deleteCardset(indexPath: indexPath)
+                    }
+                }
+                return true
+            }]
             return cell
         default:
             print("ERROR: Unexpected indexPath")
         }
         return UITableViewCell()
+    }
+    
+    func deleteCardset(indexPath: IndexPath) {
+        let tappedCard = self.cardsets[indexPath.section]
+        RealmHelper.deleteCardset(cardset: tappedCard)
+        //self.cardsetTableView.deleteSections([indexPath.section], with: .left)
+        self.cardsets = Array(RealmHelper.retrieveCardsets())
+        self.cardsetTableView.deleteSections([indexPath.section], with: .left)
+        self.reloadTable()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -159,6 +213,21 @@ extension HomeViewController: UITableViewDelegate {
             selectedCell.boxView.borderWidth = CGFloat(2.0)
         }
     }
+    
+//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//        let delete = UITableViewRowAction(style: .destructive, title: ""){ action, indexPath in
+//            // Do anything
+//        }
+//        //let backImage = UIImageView(image: UIImage(named: "DeleteIcon"))
+//        //backImage.contentMode = .scaleAspectFit
+//        //backImage.backgroundColor = UIColor.red
+//        delete.backgroundColor = UIColor(patternImage: UIImage(named: "DeleteIcon")!)
+//        
+//        //delete.backgroundColor?.context
+//        //(UIButton.appearance(whenContainedInInstancesOf: [UIView.self])).setImage(UIImage(named: "Cross"), for: .normal)
+//        
+//        return [delete]
+//    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == cardsets.count {

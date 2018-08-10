@@ -1,23 +1,111 @@
 PODS:
-  - Hero (1.1.0)
+  - AlertHelperKit (1.6.1)
+  - Firebase/Core (5.5.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (= 5.1.0)
+  - Firebase/CoreOnly (5.5.0):
+    - FirebaseCore (= 5.1.0)
+  - FirebaseAnalytics (5.1.0):
+    - FirebaseCore (~> 5.1)
+    - FirebaseInstanceID (~> 3.2)
+    - GoogleAppMeasurement (~> 5.1)
+    - GoogleUtilities/AppDelegateSwizzler (~> 5.2.0)
+    - GoogleUtilities/MethodSwizzler (~> 5.2.0)
+    - GoogleUtilities/Network (~> 5.2)
+    - "GoogleUtilities/NSData+zlib (~> 5.2)"
+    - nanopb (~> 0.3)
+  - FirebaseCore (5.1.0):
+    - GoogleUtilities/Logger (~> 5.2)
+  - FirebaseInstanceID (3.2.0):
+    - FirebaseCore (~> 5.1)
+    - GoogleUtilities/Environment (~> 5.2)
+  - GoogleAppMeasurement (5.1.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 5.2.0)
+    - GoogleUtilities/MethodSwizzler (~> 5.2.0)
+    - GoogleUtilities/Network (~> 5.2)
+    - "GoogleUtilities/NSData+zlib (~> 5.2)"
+    - nanopb (~> 0.3)
+  - GoogleUtilities/AppDelegateSwizzler (5.2.2):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (5.2.2)
+  - GoogleUtilities/Logger (5.2.2):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (5.2.2):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (5.2.2):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (5.2.2)"
+  - GoogleUtilities/Reachability (5.2.2):
+    - GoogleUtilities/Logger
+  - Hero (1.2.0)
+  - MGSwipeTableCell (1.6.7)
+  - nanopb (0.3.8):
+    - nanopb/decode (= 0.3.8)
+    - nanopb/encode (= 0.3.8)
+  - nanopb/decode (0.3.8)
+  - nanopb/encode (0.3.8)
   - Realm (3.3.1):
     - Realm/Headers (= 3.3.1)
   - Realm/Headers (3.3.1)
   - RealmSwift (3.3.1):
     - Realm (= 3.3.1)
   - TapticEngine (1.1.0)
+  - VisualEffectView (3.0.2)
 
 DEPENDENCIES:
+  - AlertHelperKit (from `https://github.com/keygx/AlertHelperKit`)
+  - Firebase/Core
   - Hero
+  - MGSwipeTableCell
   - RealmSwift
   - TapticEngine
+  - VisualEffectView
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseInstanceID
+    - GoogleAppMeasurement
+    - GoogleUtilities
+    - Hero
+    - MGSwipeTableCell
+    - nanopb
+    - Realm
+    - RealmSwift
+    - TapticEngine
+    - VisualEffectView
+
+EXTERNAL SOURCES:
+  AlertHelperKit:
+    :git: https://github.com/keygx/AlertHelperKit
+
+CHECKOUT OPTIONS:
+  AlertHelperKit:
+    :commit: 05e572173f6fefacf2bcf7de8fcade8af6938bfb
+    :git: https://github.com/keygx/AlertHelperKit
 
 SPEC CHECKSUMS:
-  Hero: ce59e81c79390613d97b43da7179e2c5e1017e04
+  AlertHelperKit: bca5fe6f4795bee70ada6e06be9529cca2f41d72
+  Firebase: 8c957f9cb3852b519180fb378801b7eeeba4d288
+  FirebaseAnalytics: d4a260c114aec0d765ab5b9c404ac63de1d29381
+  FirebaseCore: ee4b35cf8c8e781da296cc7c15125e4608bb954d
+  FirebaseInstanceID: 8cd2c6cfe7b9ab65ce7e248f6da7f26f6775b9be
+  GoogleAppMeasurement: e785bdb86d3d280abc778156cec323a975f11d1d
+  GoogleUtilities: 06b66f9567769a7958db20a92f0128b2843e49d5
+  Hero: 33dadf2cd1c98af71e213dcbc2902e6e03622a4e
+  MGSwipeTableCell: fb20e983988bde2b8d0df29c2d9e1d8ffd10b74a
+  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Realm: 63ebf4903b446b0bdf2131244eb1e1549925c724
   RealmSwift: f28fe8507bdfb8f1c924962401b83e7b9d7abb5c
   TapticEngine: b78b5513432b3c01af2ebbe018c0995778306757
+  VisualEffectView: 42c25f5a3c643d7c3021a3e50dac9946642225d7
 
-PODFILE CHECKSUM: e76ee05180aea5d9cca385417f96defa05162335
+PODFILE CHECKSUM: a5c3141b28ecb319c1fb81933cfd606cd6e0b19c
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.5.3

@@ -9,6 +9,7 @@
 import UIKit
 import TapticEngine
 //import Hero
+import Firebase
 
 class AddCardsetViewController: UIViewController {
 
@@ -27,6 +28,8 @@ class AddCardsetViewController: UIViewController {
         self.view.addGestureRecognizer(tapGesture)
         
         cardsetNameField.delegate = self
+        
+        cardsetNameField.becomeFirstResponder()
     }
 
     
@@ -61,6 +64,12 @@ class AddCardsetViewController: UIViewController {
         newCardset.name = cardsetNameField.text!
         newCardset.cards.append(Card())
         RealmHelper.addCardset(cardset: newCardset)
+        
+        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+            AnalyticsParameterItemID: "id-\(cardsetNameField.text!)",
+            AnalyticsParameterItemName: cardsetNameField.text!,
+            AnalyticsParameterContentType: "newCard"
+            ])
         
         performSegue(withIdentifier: "unwindSegueToHome", sender: self)
         //self.hero.modalAnimationType = .uncover(direction: HeroDefaultAnimationType.Direction.down)

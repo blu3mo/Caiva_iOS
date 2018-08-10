@@ -7,15 +7,16 @@
 //
 
 import UIKit
+import MGSwipeTableCell
 
-class CardsetInfoCardCell: UITableViewCell {
+class CardsetInfoCardCell: MGSwipeTableCell {
 
     @IBOutlet weak var frontBoxView: GradientView!
     @IBOutlet weak var backBoxView: GradientView!
     @IBOutlet weak var frontTextField: UITextField!
     @IBOutlet weak var backTextField: UITextField!
     
-    weak var delegate: CardsetInfoCardCellDelegate?
+    weak var myDelegate: CardsetInfoCardCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,14 +35,14 @@ class CardsetInfoCardCell: UITableViewCell {
     }
     
     @IBAction func frontTextFieldEditEnded(_ sender: Any) {
-        delegate?.textFieldEditEnded(indexPath: IndexPath.init(row: Util.getRowFromTag(tag: backTextField.tag), section: 0), front: frontTextField.text!, back: backTextField.text!)
+        myDelegate?.textFieldEditEnded(indexPath: IndexPath.init(row: Util.getRowFromTag(tag: backTextField.tag), section: 0), front: frontTextField.text!, back: backTextField.text!)
     }
     @IBAction func backTextFieldEditEnded(_ sender: Any) {
-        delegate?.textFieldEditEnded(indexPath: IndexPath.init(row: Util.getRowFromTag(tag: backTextField.tag), section: 0), front: frontTextField.text!, back: backTextField.text!)
+        myDelegate?.textFieldEditEnded(indexPath: IndexPath.init(row: Util.getRowFromTag(tag: backTextField.tag), section: 0), front: frontTextField.text!, back: backTextField.text!)
     }
     
     @IBAction func textFieldTapped(_ sender: UITextField) {
-        delegate?.textFieldTapped(indexPath: IndexPath.init(row: Util.getRowFromTag(tag: sender.tag), section: 0))
+        myDelegate?.textFieldTapped(indexPath: IndexPath.init(row: Util.getRowFromTag(tag: sender.tag), section: 0))
     }
     
 }

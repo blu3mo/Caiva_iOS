@@ -25,6 +25,8 @@ class ScreenSessionViewController: UIViewController {
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
     
+    @IBOutlet weak var sessionEndButtonView: GradientView!
+    
     @IBOutlet weak var blurViewContainer: VisualEffectView!
     
     var mustStopAudio = false
@@ -97,6 +99,15 @@ class ScreenSessionViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 0.07, target: self, selector: #selector(self.decreaseBlur), userInfo: nil, repeats: true)
     }
     
+    @IBAction func sessionEndButtonTapped(_ sender: Any) {
+        sessionEndButtonView.shadowColor = UIColor(hexString: "#000000", alpha: 0.15)!
+    }
+    @IBAction func sessionEndButtonTouchUpedOutside(_ sender: Any) {
+                sessionEndButtonView.shadowColor = UIColor(hexString: "#000000", alpha: 0.15)!
+    }
+    @IBAction func sessionEndButtonTouchDowned(_ sender: Any) {
+        sessionEndButtonView.shadowColor = UIColor(hexString: "#000000", alpha: 0.08)!
+    }
     @objc func decreaseBlur() {
         if gradientTimerCount >= gradientTimerLimit {
             if timer.isValid {
@@ -112,10 +123,6 @@ class ScreenSessionViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         mustStopAudio = true
         SpeechHelper.shared.stopSpeakLoop()
-    }
-    
-    override var shouldAutorotate: Bool {
-        return true
     }
     
     override func didReceiveMemoryWarning() {

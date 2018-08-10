@@ -42,6 +42,8 @@ class QuizQuestionViewController: UIViewController {
     @IBOutlet weak var result: UILabel!
     @IBOutlet weak var darkCover: UIView!
     
+    @IBOutlet weak var gradientBG: GradientView!
+    @IBOutlet weak var gradientBGCopy: GradientView!
     
     var selectionButtons: [UIButton] = []
     var selectionButtonsC: [UIButton] = []
@@ -49,19 +51,22 @@ class QuizQuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        quizset = QuizService.createQuizset(from: Cardset.currentCardset!, amount: 4)
+        quizset = QuizService.createQuizset(from: Cardset.currentCardset!)
 
-        initialPerc = Cardset.currentCardset!.perc
+        initialPerc = Cardset.currentCardset!.showingPerc
         
         selectionButtons = [selection1, selection2, selection3, selection4]
         selectionButtonsC = [selection1C, selection2C, selection3C, selection4C]
         
         setText(from: quizset!.quizes[0], randomNum: Int(arc4random_uniform(4)))
+        setGradient(from: quizset!.quizes[0])
         
         //resultView.isHidden = true
         resultView.alpha = 0.0
         darkCover.isHidden = true
         // Do any additional setup after loading the view.
+        
+        gradientBGCopy.isHidden = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -97,6 +102,7 @@ class QuizQuestionViewController: UIViewController {
     }
     
     
+    
     func setTextC(from quiz: Quiz, randomNum: Int) {
         questionLabelC.text = quiz.answer.front
         countLabelC.text = "\(quizIndex + 1)/\(quizset!.quizes.count)"
@@ -114,6 +120,25 @@ class QuizQuestionViewController: UIViewController {
                 wrongSelections.removeFirst()
             }
         }
+    }
+    
+    func setGradient(from quiz: Quiz) {
+        
+        let new = Gradients.colors[quiz.answer.colorID]
+        
+        gradientBGCopy.topColor = new.0!
+        gradientBGCopy.bottomColor = new.1!
+        gradientBGCopy.alpha = 0.0
+        gradientBGCopy.isHidden = false
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            self.gradientBGCopy.alpha = 1.0
+        }, completion: { _ in
+            self.gradientBGCopy.isHidden = true
+            self.gradientBG.topColor = new.0!
+            self.gradientBG.bottomColor = new.1!
+        })
+
     }
     
     func slideQuestion(quizIndex: Int, randomNum: Int) -> Bool {
@@ -183,7 +208,11 @@ class QuizQuestionViewController: UIViewController {
         
         let randomNum = arc4random_uniform(4)
         
-        self.setTextC(from: self.quizset!.quizes[self.quizIndex], randomNum: Int(randomNum))
+        let usingQuiz = self.quizset!.quizes[self.quizIndex]
+        
+        self.setTextC(from: usingQuiz, randomNum: Int(randomNum))
+        
+        self.setGradient(from: usingQuiz)
         
         Util.doAfterDelay(seconds: 0.05, process: {
             self.slideQuestion(quizIndex: self.quizIndex, randomNum: Int(randomNum))

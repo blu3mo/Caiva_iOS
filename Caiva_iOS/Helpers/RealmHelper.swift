@@ -52,6 +52,13 @@ class RealmHelper {
         }
     }
     
+    static func deleteCard(on cardset: Cardset, index: Int) {
+        let realm = try! Realm()
+        try! realm.write {
+            cardset.cards.remove(at: index)
+        }
+    }
+    
     static func setDegree(on card: Card, value: Double) {
         var realValue = value
         if value >= 1 {
@@ -60,6 +67,13 @@ class RealmHelper {
         let realm = try! Realm()
         try! realm.write {
             card.degree = realValue
+        }
+    }
+    
+    static func renameCardset(on cardset: Cardset, text: String) {
+        let realm = try! Realm()
+        try! realm.write {
+            cardset.name = text
         }
     }
     

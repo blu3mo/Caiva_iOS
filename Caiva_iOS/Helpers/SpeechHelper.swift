@@ -151,10 +151,17 @@ class SpeechHelper: NSObject, AVAudioPlayerDelegate {
     }
     
     private func speakFirstOfLoopData(eachPrepare: @escaping (_ cardUUID: UUIDString) -> Void, completion: @escaping () -> Void ) -> () {
+        var usingVoiceType: VoiceType
+        let voiceTypeUD = UserDefaults.standard.integer(forKey: "voiceType")
+        if voiceTypeUD == 0 {
+            usingVoiceType = .standardMale
+        } else {
+            usingVoiceType = .standardFemale
+        }
         if !(self.loopData.isEmpty) {
             let usingLoopData = loopData.first!
             eachPrepare(usingLoopData.2)
-            speak(text: usingLoopData.0, voiceType: .standardFemale, completion: {
+            speak(text: usingLoopData.0, voiceType: usingVoiceType, completion: {
                 Util.doAfterDelay(seconds: usingLoopData.1, process: {()
                     self.speakFirstOfLoopData(eachPrepare: eachPrepare, completion: completion)
                 })

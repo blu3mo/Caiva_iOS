@@ -16,12 +16,24 @@ class Cardset: Object {
     @objc dynamic var name = ""
     @objc dynamic var perc: Double {
         get {
+            if cards.count == 0 {
+                return 0.1
+            }
             var newPerc = 0.0
             for card in cards {
-                newPerc += card.degree
+                if card.degree <= 1 {
+                    newPerc += card.degree
+                } else {
+                    newPerc += 1
+                }
             }
             newPerc /= Double(cards.count)
             return newPerc
+        }
+    }
+    var showingPerc: Double {
+        get {
+            return (perc * (10/9) - (1/9) )
         }
     }
     var cards = List<Card>()

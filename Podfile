@@ -14,6 +14,8 @@ target 'Caiva_iOS' do
   # pod 'AnimatedBlurLabel'
   # pod 'DynamicBlurView'
   pod "VisualEffectView"
+  pod 'Firebase/Core'
+  pod 'MGSwipeTableCell'
 
 
   post_install do |installer|
